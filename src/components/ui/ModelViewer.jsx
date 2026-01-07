@@ -63,7 +63,8 @@ const ModelInner = ({
     fadeIn,
     autoRotate,
     autoRotateSpeed,
-    onLoaded
+    onLoaded,
+    debug
 }) => {
     const outer = useRef(null);
     const inner = useRef(null);
@@ -91,8 +92,20 @@ const ModelInner = ({
         g.updateWorldMatrix(true, true);
 
         const sphere = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere());
-        const s = 1 / (sphere.radius * 2);
-        g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
+        if (debug) console.log('Model Sphere:', sphere);
+
+        // Safety check for radius
+        const radius = sphere.radius || 1;
+        const s = 1 / (radius * 2);
+
+        if (debug) console.log('Calculated Scale Factor:', s);
+
+        // FIX: Multiply center by scale to bring it to 0,0,0 in world space
+        g.position.set(
+            -sphere.center.x * s,
+            -sphere.center.y * s,
+            -sphere.center.z * s
+        );
         g.scale.setScalar(s);
 
         g.traverse(o => {
@@ -151,6 +164,7 @@ const ModelInner = ({
             lx = e.clientX;
             ly = e.clientY;
             window.addEventListener('pointerup', up);
+            window.addEventListener('pointermove', move);
         };
         const move = e => {
             if (!drag) return;
@@ -163,13 +177,17 @@ const ModelInner = ({
             vel.current = { x: dx * ROTATE_SPEED, y: dy * ROTATE_SPEED };
             invalidate();
         };
-        const up = () => (drag = false);
+        const up = () => {
+            drag = false;
+            window.removeEventListener('pointerup', up);
+            window.removeEventListener('pointermove', move);
+        };
         el.addEventListener('pointerdown', down);
-        el.addEventListener('pointermove', move);
+        // Removed el.addEventListener('pointermove', move) to prevent conflict
         return () => {
             el.removeEventListener('pointerdown', down);
-            el.removeEventListener('pointermove', move);
             window.removeEventListener('pointerup', up);
+            window.removeEventListener('pointermove', move);
         };
     }, [gl, enableManualRotation]);
 
@@ -351,9 +369,12 @@ const ModelViewer = ({
     fadeIn = false,
     autoRotate = false,
     autoRotateSpeed = 0.35,
-    onModelLoaded
+    onModelLoaded,
+    debug = false
 }) => {
     useEffect(() => void useGLTF.preload(url), [url]);
+    useEffect(() => { if (debug) console.log('ModelViewer mounted for:', url); }, [url, debug]);
+
     const pivot = useRef(new THREE.Vector3()).current;
     const contactRef = useRef(null);
     const rendererRef = useRef(null);
@@ -447,6 +468,8 @@ const ModelViewer = ({
 
                 <ContactShadows ref={contactRef} position={[0, -0.5, 0]} opacity={0.35} scale={10} blur={2} />
 
+
+
                 <Suspense fallback={<Loader placeholderSrc={placeholderSrc} />}>
                     <ModelInner
                         url={url}
@@ -466,6 +489,7 @@ const ModelViewer = ({
                         autoRotate={autoRotate}
                         autoRotateSpeed={autoRotateSpeed}
                         onLoaded={onModelLoaded}
+                        debug={debug}
                     />
                 </Suspense>
 

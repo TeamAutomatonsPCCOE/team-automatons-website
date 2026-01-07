@@ -30,8 +30,10 @@ const Spline = dynamic(() => import('@splinetool/react-spline'), {
 
 export function InteractiveRobotSpline({ scene, className }) {
   return (
-    <div className={className}>
+    <div className={`${className} relative`}>
       <Spline scene={scene} className="w-full h-full" />
+      {/* Spline Badge Hider */}
+      <div className="absolute bottom-2 right-8 w-36 h-12 bg-gray-950 z-50 pointer-events-none" />
     </div>
   );
 }

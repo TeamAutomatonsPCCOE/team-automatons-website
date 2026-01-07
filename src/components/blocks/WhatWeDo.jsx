@@ -113,16 +113,8 @@ export function WhatWeDo() {
                         What We Do
                     </h2>
                     <p className="text-lg lg:text-xl text-gray-300 leading-relaxed">
-                        Team Automatons is dedicated to pushing the boundaries of robotics and automation.
-                        We design, build, and program autonomous robots for national and international competitions.
-                        Our mission is to foster innovation, technical excellence, and teamwork, preparing the next generation of engineers to solve real-world problems through intelligent machines.
+                        We are Team Automatons, the robotics research and development team of Pimpri Chinchwad College of Engineering, Pune, India. Our team is run by undergraduate students coming from different disciplines of Engineering. Our team participates in International Robotics Competition ABU ROBOCON and International Rover Challenge (IRC) annually, apart from this we conduct various workshops for students to help them explore the field of robotics.
                     </p>
-
-                    <div className="mt-8">
-                        <button className="px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-full transition-colors shadow-lg shadow-purple-900/20">
-                            Learn More
-                        </button>
-                    </div>
                 </div>
 
             </div>

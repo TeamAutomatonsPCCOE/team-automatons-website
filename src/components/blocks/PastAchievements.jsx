@@ -11,12 +11,24 @@ const legacyData = [
         items: [
             {
                 title: "ROBOCON 2025",
-                description: "AIR 2 secured in the national championship. Innovation at its peak.",
+                description: (
+                    <>
+                        The theme for ABU Robocon 2025 was "Robot Basketball," challenging teams to design and program robots to play basketball, focusing on shooting, dribbling, passing, and even dunking.
+                        <br />
+                        We secured AIR 9th in ROBOCON 2025.
+                    </>
+                ),
                 image: "/achievements/legacy-placeholder.jpg"
             },
             {
                 title: "IRC 2025",
-                description: "International Rover Challenge participation with Kartikeya 2.0.",
+                description: (
+                    <>
+                        International Rover Challenge participation with Kartikeya.
+                        <br />
+                        We secured AIR 19th in IRC 2025.
+                    </>
+                ),
                 image: "/achievements/legacy-placeholder.jpg"
             }
         ]
@@ -25,63 +37,123 @@ const legacyData = [
         year: "2024",
         type: "single",
         title: "ROBOCON 2024",
-        description: "Achieved significant milestones in autonomous navigation and task completion.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                The theme for the 2024 Asia-Pacific Broadcasting Union (ABU) Robocon was "Harvest Day", hosted by Vietnam which was inspired by rice cultivation on terraced fields.
+                <br />
+                We secured AIR 2 in ROBOCON 2024.
+            </>
+        ),
+        image: "/achievements/2024_r2_cropped.jpg"
     },
     {
         year: "2023",
         type: "single",
         title: "ROBOCON 2023",
-        description: "Best Mechanism Award and Quarter Finalists.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                The competition is to cast flowers over Angkor Wat by the corporation of a rabbit robot and an elephant robot. The actual competition is "Ring Toss Game" using blue and red rings made of rubber hoses instead of flowers.
+                <br />
+                We secured AIR 13th in ROBOCON 2023.
+            </>
+        ),
+        image: "/achievements/Robots_2023.jpeg"
     },
     {
         year: "2022",
         title: "ROBOCON 2022",
-        description: "Showcasing resilience and engineering prowess.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                The 2022 competition featured an exhilarating game of Lagori, where robots from two teams—Red and Blue—competed against each other.
+                <br />
+                We secured AIR 3rd in ROBOCON 2022.
+            </>
+        ),
+        image: "/achievements/lagoriwithrobo.jpg"
     },
     {
         year: "2021",
         title: "ROBOCON 2021",
-        description: "Virtual completion excellence during the pandemic era.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                Throwing arrows into pots, a traditional etiquette and game in ancient China.
+                <br />
+                We secured AIR 4th in ROBOCON 2021.
+            </>
+        ),
+        image: "/achievements/robocon_2021.jpg"
     },
     {
         year: "2020",
         title: "ROBOCON 2020",
-        description: "Innovation award for the unique throwing mechanism.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                ROBO RUGBY 7s, a game based on Fiji's national sport, where game field and zones were designed like a rugby ground.
+                <br />
+                We secured AIR 4th in ROBOCON 2020.
+            </>
+        ),
+        image: "/achievements/2020.jpg"
     },
     {
         year: "2019",
         title: "ROBOCON 2019",
-        description: "AIR 4 and Best Aesthetic Robot Award.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                The theme was "Sharing the knowledge". It is related to the Urtuu system of Mongolian tradition.
+                <br />
+                We secured AIR 12th in ROBOCON 2019.
+            </>
+        ),
+        image: "/achievements/mr2_2019.jpg"
     },
     {
         year: "2018",
         title: "ROBOCON 2018",
-        description: "Fastest task completion record in the league stage.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                The theme comes from a traditional game in ethnic region of Vietnam, namely ném còn (throwing shuttlecock).
+                <br />
+                We secured AIR 16th in ROBOCON 2018.
+            </>
+        ),
+        image: "/achievements/2018.png"
     },
     {
         year: "2017",
         title: "ROBOCON 2017",
-        description: "Qualified for Super League with a robust design.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                The theme of ABU ASIA-PACIFIC ROBOCON 2017 was “Asobi”(play) which encouraged playful and original robot designs.
+                <br />
+                We secured AIR 16th in ROBOCON 2017.
+            </>
+        ),
+        image: "/achievements/2017.png"
     },
     {
         year: "2016",
         title: "ROBOCON 2016",
-        description: "Clean Energy Award for efficient power management.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                ABU Robocon 2016 was designed to create an awareness of efficient energy consumption and clean and renewable energy utilization.
+                <br />
+                We successfully achieved wireless charging in ROBOCON 2016.
+            </>
+        ),
+        image: "/achievements/2016.png"
     },
     {
         year: "2015",
         title: "ROBOCON 2015",
-        description: "The beginning of a legacy. Best Rookie Team Award.",
-        image: "/achievements/legacy-placeholder.jpg"
+        description: (
+            <>
+                The motive of this contest theme was inspired by the doubles game of badminton.
+                <br />
+                We secured AIR 21st in ROBOCON 2016.
+            </>
+        ),
+        image: "/achievements/2015.png"
     }
 ];
 

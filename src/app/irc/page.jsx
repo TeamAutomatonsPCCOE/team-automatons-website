@@ -55,7 +55,7 @@ export default function IRCPage() {
                         {/* Full Width 3D Model Layer */}
                         <div className="absolute inset-0 z-10">
                             <ModelViewer
-                                url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
+                                url="/irc/rover.glb"
                                 width="100%"
                                 height="100%"
 
@@ -71,15 +71,15 @@ export default function IRCPage() {
                                 enableManualZoom={false} // Disable zoom to fix scroll hijacking
 
                                 // Camera / Zoom
-                                autoFrame={false} // Disabled to fix disappearing
-                                defaultZoom={0.7}
+                                autoFrame={false}
+                                defaultZoom={1.0} // Slightly adjusted for the new model
                                 minZoomDistance={0.1}
                                 maxZoomDistance={10}
 
                                 // Lighting & Env
                                 environmentPreset="city"
                                 ambientIntensity={0.8}
-                                fadeIn={true} // Smooth entry
+                                fadeIn={true}
                             />
                         </div>
 

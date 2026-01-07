@@ -15,9 +15,7 @@ const footerLinks = [
     {
         label: 'Company',
         links: [
-            { title: 'About Us', href: '/about' },
-            { title: 'Privacy Policy', href: '/privacy' },
-            { title: 'Terms of Services', href: '/terms' },
+            { title: 'About Us', href: '/' },
             { title: 'Contact Us', href: '/contact' },
             { title: 'Sponsors', href: '/sponsors' },
         ],
@@ -25,9 +23,10 @@ const footerLinks = [
     {
         label: 'Social Links',
         links: [
-            { title: 'Instagram', href: '#', icon: InstagramIcon },
-            { title: 'Youtube', href: '#', icon: YoutubeIcon },
-            { title: 'LinkedIn', href: '#', icon: LinkedinIcon },
+            { title: 'Facebook', href: 'https://www.facebook.com/teamautomatons', icon: FacebookIcon },
+            { title: 'Instagram', href: 'https://www.instagram.com/team_automatons/', icon: InstagramIcon },
+            { title: 'Youtube', href: 'https://www.youtube.com/c/TeamAutomatonsPCCOE', icon: YoutubeIcon },
+            { title: 'LinkedIn', href: 'https://www.linkedin.com/company/team-automatons/posts/?feedView=all', icon: LinkedinIcon },
         ],
     },
 ];
@@ -66,6 +65,8 @@ export function Footer() {
                                         <li key={link.title}>
                                             <a
                                                 href={link.href}
+                                                target={link.href.startsWith('http') ? "_blank" : undefined}
+                                                rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
                                                 className="hover:text-white hover:translate-x-1 inline-flex items-center transition-all duration-300"
                                             >
                                                 {link.icon && <link.icon className="me-2 size-4 text-purple-400" />}

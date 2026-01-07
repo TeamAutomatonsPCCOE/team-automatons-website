@@ -915,6 +915,7 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
     const canvasRef = useRef(null);
     const [activeItem, setActiveItem] = useState(null);
     const [isMoving, setIsMoving] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -950,20 +951,50 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
         };
     }, [items, scale]);
 
-    const handleButtonClick = () => {
-        if (!activeItem?.link) return;
-        if (activeItem.link.startsWith('http')) {
-            window.open(activeItem.link, '_blank');
-        } else {
-            console.log('Internal route:', activeItem.link);
-        }
+    const handleButtonClick = (e) => {
+        e.stopPropagation(); // Prevent closing immediately
+        if (!activeItem) return;
+        setIsExpanded(true);
+    };
+
+    const handleClose = () => {
+        setIsExpanded(false);
     };
 
     return (
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-            <canvas id="infinite-grid-menu-canvas" ref={canvasRef} />
+            <canvas
+                id="infinite-grid-menu-canvas"
+                ref={canvasRef}
+                className={`transition-all duration-500 ease-in-out ${isExpanded ? 'blur-md scale-105' : ''}`}
+            />
 
-            {activeItem && (
+            {/* Modal Overlay */}
+            {isExpanded && activeItem && (
+                <div
+                    className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm cursor-zoom-out"
+                    onClick={handleClose}
+                >
+                    <div
+                        className="relative max-w-[90%] max-h-[90%] p-2 rounded-2xl overflow-hidden shadow-2xl transition-transform transform scale-100"
+                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking image
+                    >
+                        <img
+                            src={activeItem.image}
+                            alt={activeItem.title}
+                            className="w-full h-full object-contain max-h-[85vh] rounded-xl border border-white/10"
+                        />
+                        <button
+                            onClick={handleClose}
+                            className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {!isExpanded && activeItem && (
                 <>
                     <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>{activeItem.title}</h2>
 

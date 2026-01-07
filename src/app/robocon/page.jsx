@@ -7,16 +7,16 @@ import { Footer } from '@/components/ui/footer-section';
 
 const stages = [
     {
-        title: "Stage 1: Proposal",
-        description: "Teams submit their initial ideas and technical proposals for the robot design."
+        title: "Stage 1: Solution ideas submission",
+        description: "All teams are required to submit detailed technical documentation which includes the robot's designs and the justifications behind those design choices. The documentation is evaluated out of 100 points."
     },
     {
-        title: "Stage 2: Design & Simulation",
-        description: "Detailed CAD models and simulations to validate the mechanism's feasibility."
+        title: "Stage 2: Proof of Concept submission",
+        description: "Teams are evaluated based on videos showcasing robots performing the competition tasks according to the rulebook guidelines."
     },
     {
-        title: "Stage 3: Fabrication",
-        description: "The physical construction of the robot using precision manufacturing and assembly."
+        title: "Stage 3: Finals",
+        description: "Based on the Stage 1 and Stage 2 scores, top 50 teams are selected for the final one-on-one competition at the national host college."
     },
 ];
 

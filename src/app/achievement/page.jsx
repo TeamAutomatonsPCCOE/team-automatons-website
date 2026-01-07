@@ -21,7 +21,7 @@ export default function AchievementPage() {
                         timeScale={1.0} // Default
                         wispDensity={1.0}
                         wispSpeed={15.0}
-                        wispIntensity={2.0}
+                        wispIntensity={0.5}
                         flowSpeed={0.35}
                         flowStrength={0.25}
                         fogIntensity={0.45}
