@@ -114,7 +114,7 @@ const AnimatedBlock = ({ mission, index, isAlternate }) => {
 
 export function IRCApproachSection() {
     return (
-        <section className="relative w-full py-32 px-4 md:px-8 bg-black overflow-hidden">
+        <section className="relative w-full py-16 px-4 md:px-8 bg-black overflow-hidden">
             <div className="max-w-[1400px] mx-auto relative z-10">
 
                 {/* Section Header */}

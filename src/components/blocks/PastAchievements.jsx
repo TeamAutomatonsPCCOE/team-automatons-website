@@ -161,7 +161,7 @@ const LegacyCard = ({ data }) => {
     return (
         <div className="relative group w-fit mx-auto rounded-2xl p-[2px] overflow-hidden">
             {/* Spinning Gradient Border */}
-            <div className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#b026ff_50%,#000000_100%)]" />
+            <div className="absolute inset-[-50%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#b026ff_50%,#000000_100%)]" />
 
             {/* Inner Content Box */}
             <div className="relative bg-black rounded-2xl overflow-hidden h-full w-full">

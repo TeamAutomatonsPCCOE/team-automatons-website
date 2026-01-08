@@ -174,3 +174,38 @@
         transition: none !important;
     }
 }
+
+/* Animation Keyframes */
+@keyframes logoloop-scroll-horiz {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(calc(-1 * var(--logoloop-seqWidth)), 0, 0);
+    }
+}
+
+@keyframes logoloop-scroll-vert {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, calc(-1 * var(--logoloop-seqHeight)), 0);
+    }
+}
+
+.logoloop__track--animate {
+    animation: logoloop-scroll-horiz linear infinite;
+    animation-duration: var(--logoloop-duration);
+    animation-play-state: running;
+}
+
+.logoloop--vertical .logoloop__track--animate {
+    animation-name: logoloop-scroll-vert;
+}
+
+.logoloop:hover .logoloop__track--animate {
+    animation-play-state: var(--logoloop-hover-play-state, running);
+}

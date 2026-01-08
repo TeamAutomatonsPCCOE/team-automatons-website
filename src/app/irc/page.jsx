@@ -55,7 +55,7 @@ export default function IRCPage() {
                         {/* Full Width 3D Model Layer */}
                         <div className="absolute inset-0 z-10">
                             <ModelViewer
-                                url="/irc/rover.glb"
+                                url="/irc/rovercarpet7.glb"
                                 width="100%"
                                 height="100%"
 
@@ -63,8 +63,8 @@ export default function IRCPage() {
                                 modelXOffset={0.3} // Shifted right
 
                                 // Rotation
-                                autoRotate={false}
-                                autoRotateSpeed={0.2} // Very slow speed
+                                autoRotate={true}
+                                autoRotateSpeed={-0.2} // Clockwise very slow speed
                                 enableManualRotation={true}
                                 enableHoverRotation={true} // Disable hover to prevent jumpiness
                                 enableMouseParallax={true} // Disable parallax for stability
@@ -72,7 +72,7 @@ export default function IRCPage() {
 
                                 // Camera / Zoom
                                 autoFrame={false}
-                                defaultZoom={1.0} // Slightly adjusted for the new model
+                                defaultZoom={0.6} // Slightly adjusted for the new model
                                 minZoomDistance={0.1}
                                 maxZoomDistance={10}
 

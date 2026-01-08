@@ -43,19 +43,21 @@ export default function ContactPage() {
 
     // Mock data for the cards as requested (2 then 3)
     const ROW_1 = [
-        { name: 'Dr. Sanjay B. Matekar', title: 'Faculty Co-ordinator', handle: 'ritik.lipate', status: 'https://mail.google.com/mail/u/0/?fs=1&to=sanjay.matekar@pccoepune.org&tf=cm', avatarUrl: '/contact/image.png' },
-        { name: 'Dr. Varsha S. Bendre', title: 'Faculty Co-ordinator', handle: 'nimisha.halabe', status: 'https://mail.google.com/mail/u/0/?fs=1&to=varsha.bendre@pccoepune.org&tf=cm', avatarUrl: '/contact/avatar_new.png' }
+        { name: 'Dr. Sanjay B. Matekar', title: 'Faculty Co-ordinator', handle: 'ritik.lipate', status: 'Offline', avatarUrl: '/contact/matekar sir.png' },
+        { name: 'Dr. Varsha S. Bendre', title: 'Faculty Co-ordinator', handle: 'nimisha.halabe', status: 'Offline', avatarUrl: '/contact/avatar_new.png' }
     ];
 
     const ROW_2 = [
-        { name: 'Piyush Satish Patil', title: 'Managing Director', handle: 'member.one', status: 'Offline' },
-        { name: 'Vardhan Santosh Khinvasara', title: 'Co-Managing Director ', handle: 'member.two', status: 'Offline' },
-        { name: 'Atharva Ananda Junghare', title: 'Co-Managing Director', handle: 'member.three', status: 'Offline' }
+        { name: 'Piyush Patil', title: 'Managing Director', handle: 'member.one', status: 'Offline', avatarUrl: '/contact/piyush.png' },
+        { name: 'Vardhan Khinvasara', title: 'Co-Managing Director ', handle: 'member.two', status: 'Offline', avatarUrl: '/contact/vardhan.png' },
+        { name: 'Atharva Junghare', title: 'Co-Managing Director', handle: 'member.three', status: 'Offline', avatarUrl: '/contact/atharv.png' }
     ];
 
     // Specific props requested by the user
     const cardProps = {
         showUserInfo: true,
+        enableMobileTilt: false,
+        enableTilt: false,
         behindGlowColor: "hsla(211, 100%, 70%, 0.6)",
         innerGradient: "linear-gradient(145deg,hsla(211, 40%, 45%, 0.55) 0%,hsla(174, 60%, 70%, 0.27) 100%)"
     };
@@ -95,6 +97,7 @@ export default function ContactPage() {
                                     title={person.title}
                                     handle={person.handle}
                                     status={person.status}
+                                    avatarUrl={person.avatarUrl}
                                     {...cardProps}
                                 />
                             </div>

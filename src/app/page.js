@@ -34,7 +34,7 @@ export default function Home() {
           direction="left"
           logoHeight={60} // Slightly bigger
           gap={80} // More spacing
-          hoverSpeed={10} // Slow down on hover
+          pauseOnHover={true}
           scaleOnHover={true} // Pop on hover
           fadeOut={true}
           fadeOutColor="#030712" // Match bg-gray-950 (hex approximation)

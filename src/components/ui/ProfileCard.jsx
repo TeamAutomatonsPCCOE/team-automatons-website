@@ -20,7 +20,7 @@ const adjust = (v, fMin, fMax, tMin, tMax) => round(tMin + ((tMax - tMin) * (v -
 
 const ProfileCardComponent = ({
     avatarUrl = '/contact/avatar_new.png',
-    iconUrl = '/logo.png',
+    iconUrl = '', // Removed default logo to prevent unwanted icon
     grainUrl = '',
     innerGradient,
     behindGlowEnabled = true,
@@ -313,8 +313,8 @@ const ProfileCardComponent = ({
             <div ref={shellRef} className="pc-card-shell">
                 <section className="pc-card">
                     <div className="pc-inside">
-                        <div className="pc-shine" />
-                        <div className="pc-glare" />
+                        {iconUrl && <div className="pc-shine" />}
+                        {iconUrl && <div className="pc-glare" />}
                         <div className="pc-content pc-avatar-content">
                             <img
                                 className="avatar"

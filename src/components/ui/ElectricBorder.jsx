@@ -154,26 +154,40 @@ const ElectricBorder = ({
         const displacement = 60;
         const borderOffset = 60;
 
+        let width = 0;
+        let height = 0;
+
+        const isVisibleRef = { current: false };
+        const isRunningRef = { current: false };
+
         const updateSize = () => {
             const rect = container.getBoundingClientRect();
-            const width = rect.width + borderOffset * 2;
-            const height = rect.height + borderOffset * 2;
+            const w = rect.width + borderOffset * 2;
+            const h = rect.height + borderOffset * 2;
 
             // Use device pixel ratio for sharp rendering
             const dpr = Math.min(window.devicePixelRatio || 1, 2);
-            canvas.width = width * dpr;
-            canvas.height = height * dpr;
-            canvas.style.width = `${width}px`;
-            canvas.style.height = `${height}px`;
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            canvas.style.width = `${w}px`;
+            canvas.style.height = `${h}px`;
             ctx.scale(dpr, dpr);
 
-            return { width, height };
+            return { width: w, height: h };
         };
 
-        let { width, height } = updateSize();
+        const size = updateSize();
+        width = size.width;
+        height = size.height;
 
         const drawElectricBorder = currentTime => {
             if (!canvas || !ctx) return;
+
+            // If not visible, stop the loop
+            if (!isVisibleRef.current) {
+                isRunningRef.current = false;
+                return;
+            }
 
             const deltaTime = (currentTime - lastFrameTimeRef.current) / 1000;
             timeRef.current += deltaTime * speed;
@@ -246,6 +260,7 @@ const ElectricBorder = ({
             ctx.stroke();
 
             animationRef.current = requestAnimationFrame(drawElectricBorder);
+            isRunningRef.current = true;
         };
 
         // Handle resize
@@ -256,16 +271,28 @@ const ElectricBorder = ({
         });
         resizeObserver.observe(container);
 
-        // Start animation
-        animationRef.current = requestAnimationFrame(drawElectricBorder);
+        // Intersection Observer to toggle animation
+        const intersectionObserver = new IntersectionObserver(([entry]) => {
+            isVisibleRef.current = entry.isIntersecting;
+
+            if (entry.isIntersecting && !isRunningRef.current) {
+                lastFrameTimeRef.current = performance.now();
+                animationRef.current = requestAnimationFrame(drawElectricBorder);
+                isRunningRef.current = true;
+            }
+        }, { threshold: 0 });
+        intersectionObserver.observe(container);
 
         return () => {
             if (animationRef.current) {
                 cancelAnimationFrame(animationRef.current);
             }
             resizeObserver.disconnect();
+            intersectionObserver.disconnect();
         };
     }, [color, speed, chaos, borderRadius, octavedNoise, getRoundedRectPoint]);
+
+
 
     const vars = {
         '--electric-border-color': color,
