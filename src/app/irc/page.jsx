@@ -44,7 +44,7 @@ export default function IRCPage() {
 
                         {/* text content - Absolute Positioned on the Left */}
                         <div className="absolute inset-y-0 left-0 w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 z-20 pointer-events-none">
-                            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+                            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-600 to-white bg-clip-text text-transparent leading-tight drop-shadow-[0_0_15px_rgba(220,38,38,0.5)]">
                                 Traversing the<br />Red Planet.
                             </h1>
                             <p className="mt-6 text-xl text-gray-400 max-w-md leading-relaxed">
@@ -55,7 +55,7 @@ export default function IRCPage() {
                         {/* Full Width 3D Model Layer */}
                         <div className="absolute inset-0 z-10">
                             <ModelViewer
-                                url="/irc/rovercarpet7.glb"
+                                url="/irc/roverfinal.glb"
                                 width="100%"
                                 height="100%"
 
@@ -68,18 +68,21 @@ export default function IRCPage() {
                                 enableManualRotation={true}
                                 enableHoverRotation={true} // Disable hover to prevent jumpiness
                                 enableMouseParallax={true} // Disable parallax for stability
-                                enableManualZoom={false} // Disable zoom to fix scroll hijacking
+                                enableManualZoom={false} // Enabled so you can zoom in/out to find the rover.
+                                defaultRotationY={25} // Slightly more top-down view
 
                                 // Camera / Zoom
                                 autoFrame={false}
-                                defaultZoom={0.6} // Slightly adjusted for the new model
+                                defaultZoom={0.5}  // Zoomed in closer
                                 minZoomDistance={0.1}
-                                maxZoomDistance={10}
+                                maxZoomDistance={15}
 
                                 // Lighting & Env
                                 environmentPreset="city"
                                 ambientIntensity={0.8}
                                 fadeIn={true}
+                                manualScale={0.005} // Scale down 3000u -> ~15u
+                                manualPosition={[0, 2, 0]} // Shifted up slightly to show carpet
                             />
                         </div>
 

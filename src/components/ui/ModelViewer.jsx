@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-unknown-property */
-import { Suspense, useRef, useLayoutEffect, useEffect, useMemo, useState } from 'react';
+import { Suspense, useRef, useLayoutEffect, useEffect, useMemo } from 'react';
 import { Canvas, useFrame, useLoader, useThree, invalidate } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useFBX, useProgress, Html, Environment, ContactShadows } from '@react-three/drei';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
@@ -24,7 +24,7 @@ const Loader = ({ placeholderSrc }) => {
             {placeholderSrc ? (
                 <img src={placeholderSrc} width={128} height={128} style={{ filter: 'blur(8px)', borderRadius: 8 }} />
             ) : (
-                <div style={{ color: 'white' }}>{Math.round(progress)} %</div>
+                `${Math.round(progress)} %`
             )}
         </Html>
     );
@@ -59,12 +59,12 @@ const ModelInner = ({
     enableManualRotation,
     enableHoverRotation,
     enableManualZoom,
-    autoFrame,
     fadeIn,
     autoRotate,
     autoRotateSpeed,
-    onLoaded,
-    debug
+    manualScale,
+    manualPosition,
+    onLoaded
 }) => {
     const outer = useRef(null);
     const inner = useRef(null);
@@ -87,26 +87,44 @@ const ModelInner = ({
 
     const pivotW = useRef(new THREE.Vector3());
     useLayoutEffect(() => {
-        if (content) return;
+        if (!content) return;
         const g = inner.current;
         g.updateWorldMatrix(true, true);
 
         const sphere = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere());
-        if (debug) console.log('Model Sphere:', sphere);
+        const s = 1 / (sphere.radius * 2);
 
-        // Safety check for radius
-        const radius = sphere.radius || 1;
-        const s = 1 / (radius * 2);
+        console.group("Model Debug Info");
 
-        if (debug) console.log('Calculated Scale Factor:', s);
+        let currentScale = 1;
+        if (typeof manualScale !== 'undefined') {
+            currentScale = manualScale;
+            g.scale.setScalar(manualScale);
+            console.log("Using Manual Scale:", manualScale);
+        } else {
+            currentScale = 1 / (sphere.radius * 2);
+            g.scale.setScalar(currentScale);
+            console.log("Using Auto Scale:", currentScale);
+        }
 
-        // FIX: Multiply center by scale to bring it to 0,0,0 in world space
-        g.position.set(
-            -sphere.center.x * s,
-            -sphere.center.y * s,
-            -sphere.center.z * s
-        );
-        g.scale.setScalar(s);
+        if (manualPosition) {
+            g.position.set(manualPosition[0], manualPosition[1], manualPosition[2]);
+            console.log("Using Manual Position:", manualPosition);
+        } else {
+            g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
+            console.log("Using Auto Position (Center Negative):", { x: -sphere.center.x, y: -sphere.center.y, z: -sphere.center.z });
+        }
+
+        console.log("Bounding Sphere:", {
+            radius: sphere.radius,
+            center: sphere.center
+        });
+
+        console.log("Applied Transform:", {
+            position: g.position,
+            scale: g.scale
+        });
+        console.groupEnd();
 
         g.traverse(o => {
             if (o.isMesh) {
@@ -123,15 +141,24 @@ const ModelInner = ({
         pivot.copy(pivotW.current);
         outer.current.rotation.set(initPitch, initYaw, 0);
 
-        if (autoFrame && camera.isPerspectiveCamera) {
+        if (fadeIn && camera.isPerspectiveCamera) {
             const persp = camera;
-            const fitR = sphere.radius * s;
+            const fitR = sphere.radius * currentScale;
             const d = (fitR * 1.2) / Math.sin((persp.fov * Math.PI) / 180 / 2);
             persp.position.set(pivotW.current.x, pivotW.current.y, pivotW.current.z + d);
             persp.near = d / 10;
             persp.far = d * 10;
             persp.updateProjectionMatrix();
         }
+
+        // Log Initial Camera Config
+        console.log("Initial Camera State:", {
+            position: camera.position,
+            zoom: camera.zoom,
+            fov: camera.fov,
+            near: camera.near,
+            far: camera.far
+        });
 
         if (fadeIn) {
             let t = 0;
@@ -150,7 +177,7 @@ const ModelInner = ({
             return () => clearInterval(id);
         } else onLoaded?.();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [content]);
+    }, [content, manualScale, manualPosition]);
 
     useEffect(() => {
         if (!enableManualRotation || isTouch) return;
@@ -164,7 +191,6 @@ const ModelInner = ({
             lx = e.clientX;
             ly = e.clientY;
             window.addEventListener('pointerup', up);
-            window.addEventListener('pointermove', move);
         };
         const move = e => {
             if (!drag) return;
@@ -177,17 +203,13 @@ const ModelInner = ({
             vel.current = { x: dx * ROTATE_SPEED, y: dy * ROTATE_SPEED };
             invalidate();
         };
-        const up = () => {
-            drag = false;
-            window.removeEventListener('pointerup', up);
-            window.removeEventListener('pointermove', move);
-        };
+        const up = () => (drag = false);
         el.addEventListener('pointerdown', down);
-        // Removed el.addEventListener('pointermove', move) to prevent conflict
+        el.addEventListener('pointermove', move);
         return () => {
             el.removeEventListener('pointerdown', down);
+            el.removeEventListener('pointermove', move);
             window.removeEventListener('pointerup', up);
-            window.removeEventListener('pointermove', move);
         };
     }, [gl, enableManualRotation]);
 
@@ -369,12 +391,11 @@ const ModelViewer = ({
     fadeIn = false,
     autoRotate = false,
     autoRotateSpeed = 0.35,
-    onModelLoaded,
-    debug = false
+    manualScale,
+    manualPosition,
+    onModelLoaded
 }) => {
     useEffect(() => void useGLTF.preload(url), [url]);
-    useEffect(() => { if (debug) console.log('ModelViewer mounted for:', url); }, [url, debug]);
-
     const pivot = useRef(new THREE.Vector3()).current;
     const contactRef = useRef(null);
     const rendererRef = useRef(null);
@@ -411,13 +432,6 @@ const ModelViewer = ({
         invalidate();
     };
 
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return <div style={{ width, height }} />;
-
     return (
         <div
             style={{
@@ -447,8 +461,7 @@ const ModelViewer = ({
 
             <Canvas
                 shadows
-                frameloop="always"
-                gl={{ preserveDrawingBuffer: true }}
+                frameloop="demand"
                 onCreated={({ gl, scene, camera }) => {
                     rendererRef.current = gl;
                     sceneRef.current = scene;
@@ -456,7 +469,7 @@ const ModelViewer = ({
                     gl.toneMapping = THREE.ACESFilmicToneMapping;
                     gl.outputColorSpace = THREE.SRGBColorSpace;
                 }}
-                camera={{ fov: 50, position: [0, 0, camZ], near: 0.01, far: 100 }}
+                camera={{ fov: 50, position: [0, 0, camZ], near: 0.01, far: 10000 }}
                 style={{ touchAction: 'pan-y pinch-zoom' }}
             >
                 {environmentPreset !== 'none' && <Environment preset={environmentPreset} background={false} />}
@@ -466,9 +479,7 @@ const ModelViewer = ({
                 <directionalLight position={[-5, 2, 5]} intensity={fillLightIntensity} />
                 <directionalLight position={[0, 4, -5]} intensity={rimLightIntensity} />
 
-                <ContactShadows ref={contactRef} position={[0, -0.5, 0]} opacity={0.35} scale={10} blur={2} />
-
-
+                {/* <ContactShadows ref={contactRef} position={[0, -0.5, 0]} opacity={0.35} scale={10} blur={2} /> */}
 
                 <Suspense fallback={<Loader placeholderSrc={placeholderSrc} />}>
                     <ModelInner
@@ -488,8 +499,9 @@ const ModelViewer = ({
                         fadeIn={fadeIn}
                         autoRotate={autoRotate}
                         autoRotateSpeed={autoRotateSpeed}
+                        manualScale={manualScale}
+                        manualPosition={manualPosition}
                         onLoaded={onModelLoaded}
-                        debug={debug}
                     />
                 </Suspense>
 
