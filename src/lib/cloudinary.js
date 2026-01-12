@@ -12,8 +12,7 @@ export const CLOUDINARY_FOLDER_PREFIX = 'team-automatons';
 export function getCloudinaryUrl(src) {
     if (!src) return src;
 
-    // TEMPORARY FALLBACK: Return original source while uploads complete
-    return src;
+
 
     if (src.startsWith('http') || src.startsWith('//')) {
         return src; // Return external URLs as is

@@ -31,8 +31,8 @@ export default function SiteIntro({ enableAudio = false }) {
         <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
             <video
                 ref={videoRef}
-                src="/automatons intro.mp4"
-                className="w-full h-full object-cover"
+                src="https://res.cloudinary.com/dmaiwu7zn/video/upload/f_auto:video,q_auto/v1/team-automatons/intro-video"
+                className="w-full h-full object-contain md:object-cover"
                 autoPlay
                 playsInline
                 muted={!enableAudio} // Controlled by prop, default is muted (true) if enableAudio is false

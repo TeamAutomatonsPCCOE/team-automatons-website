@@ -31,9 +31,21 @@ function getFiles(dir) {
     return files;
 }
 
+const TARGET_FOLDERS = ['logos', 'team', 'gallery'];
+
 (async function () {
-    console.log('Scanning public directory for images...');
-    const allFiles = getFiles(PUBLIC_DIR);
+    console.log(`Scanning specific directories (${TARGET_FOLDERS.join(', ')}) for images...`);
+
+    let allFiles = [];
+    for (const folder of TARGET_FOLDERS) {
+        const fullPath = path.join(PUBLIC_DIR, folder);
+        if (fs.existsSync(fullPath)) {
+            allFiles = allFiles.concat(getFiles(fullPath));
+        } else {
+            console.log(`Warning: Folder ${folder} not found in public directory.`);
+        }
+    }
+
     console.log(`Found ${allFiles.length} images.`);
 
     for (const filePath of allFiles) {

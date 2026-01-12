@@ -77,25 +77,29 @@ export default function SponsorsPage() {
                             </h2>
                             <div className="flex flex-wrap justify-center gap-10">
                                 {sponsors.map((sponsor, idx) => (
-                                    <a
+                                    <div
                                         key={idx}
-                                        href={sponsor.href || '#'}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={`block transition-transform duration-300 ${sponsor.href ? 'cursor-pointer hover:scale-105' : 'cursor-default pointer-events-none'}`}
+                                        className="block transition-transform duration-300"
                                     >
                                         <PixelCard variant={TIER_CONFIG[tier].variant}>
                                             <div className="absolute inset-0 flex items-center justify-center p-8 z-10">
                                                 <div className="relative w-full h-full flex items-center justify-center filter drop-shadow-xl">
-                                                    <img
-                                                        src={getCloudinaryUrl(sponsor.logo)}
-                                                        alt={sponsor.name}
-                                                        className="max-w-full max-h-full object-contain"
-                                                    />
+                                                    <a
+                                                        href={sponsor.href || '#'}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className={`flex items-center justify-center max-w-full max-h-full transition-transform duration-300 ${sponsor.href ? 'cursor-pointer hover:scale-105' : 'cursor-default pointer-events-none'}`}
+                                                    >
+                                                        <img
+                                                            src={getCloudinaryUrl(sponsor.logo)}
+                                                            alt={sponsor.name}
+                                                            className="max-w-full max-h-full object-contain"
+                                                        />
+                                                    </a>
                                                 </div>
                                             </div>
                                         </PixelCard>
-                                    </a>
+                                    </div>
                                 ))}
                             </div>
                         </div>

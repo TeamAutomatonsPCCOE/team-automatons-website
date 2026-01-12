@@ -5,10 +5,12 @@ import { Navbar } from '@/components/ui/navbar';
 import { Footer } from '@/components/ui/footer-section';
 import { TeamTimeline } from '@/components/blocks/TeamTimeline';
 import { TeamProfileCard } from '@/components/ui/TeamProfileCard';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 // Team Member Data
 const TEAM_DATA = {
     2026: {
+        groupPhoto: '', // Placeholder - user needs to add correct path
         "BTech Members": [
             {
                 id: '2026-c1',
@@ -522,6 +524,7 @@ const TEAM_DATA = {
         ],
     },
     2025: {
+        groupPhoto: '/gallery/image.png', // Placeholder - user needs to add correct path
         "BTech Members": [
             {
                 id: '2025-b1',
@@ -978,7 +981,7 @@ const TEAM_DATA = {
         "SY Members": []
     },
     2017: {
-        groupPhoto: '/team/2017/group.jpg', // Placeholder - user needs to add correct path
+        groupPhoto: '/gallery/2017_team.JPG', // Placeholder - user needs to add correct path
         "BTech Members": [],
         "TY Members": [],
         "SY Members": []
@@ -1034,7 +1037,7 @@ export default function TeamPage() {
                         <div className="mb-24 flex justify-center animate-slide-up">
                             <div className="relative w-full max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(168,85,247,0.2)] border border-purple-500/30">
                                 <img
-                                    src={yearData.groupPhoto}
+                                    src={getCloudinaryUrl(yearData.groupPhoto)}
                                     alt={`Team Automatons ${selectedYear}`}
                                     className="w-full h-full object-cover"
                                 />
