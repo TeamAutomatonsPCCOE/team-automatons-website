@@ -711,13 +711,17 @@ class InfiniteGridMenu {
                 item =>
                     new Promise(resolve => {
                         const img = new Image();
-                        img.crossOrigin = 'anonymous';
                         img.onload = () => resolve(img);
+                        img.onerror = () => {
+                            console.error(`Failed to load image: ${item.image}`);
+                            resolve(null);
+                        };
                         img.src = item.image;
                     })
             )
         ).then(images => {
             images.forEach((img, i) => {
+                if (!img) return; // Skip failed images
                 const x = (i % this.atlasSize) * cellSize;
                 const y = Math.floor(i / this.atlasSize) * cellSize;
                 ctx.drawImage(img, x, y, cellSize, cellSize);
