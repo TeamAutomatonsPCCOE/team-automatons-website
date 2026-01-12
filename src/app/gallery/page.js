@@ -208,7 +208,7 @@ const items = [
         title: 'IRC 2025',
         description: 'Team Automatons in IRC 2025.'
     }
-].map(item => ({ ...item, image: getCloudinaryUrl(item.image) }));
+];
 
 export default function GalleryPage() {
     return (
