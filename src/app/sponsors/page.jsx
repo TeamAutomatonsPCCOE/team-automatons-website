@@ -81,8 +81,8 @@ export default function SponsorsPage() {
                                         key={idx}
                                         className="block transition-transform duration-300"
                                     >
-                                        <PixelCard variant={TIER_CONFIG[tier].variant} className="bg-white">
-                                            <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
+                                        <PixelCard variant={TIER_CONFIG[tier].variant}>
+                                            <div className="absolute inset-0 flex items-center justify-center p-8 z-10">
                                                 <div className="relative w-full h-full flex items-center justify-center filter drop-shadow-xl">
                                                     <a
                                                         href={sponsor.href || '#'}

@@ -12,7 +12,7 @@
     display: grid;
     place-items: center;
     aspect-ratio: 4 / 5;
-    border: 1px solid transparent;
+    border: 1px solid #27272a;
     border-radius: 25px;
     isolation: isolate;
     transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
@@ -25,7 +25,7 @@
     inset: 0;
     margin: auto;
     aspect-ratio: 1;
-    background: transparent;
+    background: radial-gradient(circle, #09090b, transparent 85%);
     opacity: 0;
     transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
 }
