@@ -379,7 +379,7 @@ const TEAM_DATA = {
             },
             {
                 id: '2026-m11',
-                name: 'Ashna Abhijit Kankaria ',
+                name: 'Ashna Kankaria ',
                 role: 'Jr. Embedded Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
@@ -406,7 +406,7 @@ const TEAM_DATA = {
             },
             {
                 id: '2026-m14',
-                name: 'Laxmi Rupesh Chavhan ',
+                name: 'Laxmi Chavhan ',
                 role: 'Jr. Electronics Circuit Design Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',

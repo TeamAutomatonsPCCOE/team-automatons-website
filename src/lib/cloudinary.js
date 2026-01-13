@@ -30,7 +30,8 @@ export function getCloudinaryUrl(src) {
     const pathWithoutExt = lastDotIndex !== -1 ? cleanPath.substring(0, lastDotIndex) : cleanPath;
 
     const publicId = `${CLOUDINARY_FOLDER_PREFIX}/${pathWithoutExt}`;
+    const encodedPublicId = publicId.split('/').map(encodeURIComponent).join('/');
 
     // Construct URL with f_auto,q_auto for optimization
-    return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/f_auto,q_auto/v1/${publicId}`;
+    return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/f_auto,q_auto/v1/${encodedPublicId}`;
 }

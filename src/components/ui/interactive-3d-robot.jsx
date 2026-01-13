@@ -14,12 +14,22 @@ const Spline = dynamic(() => import('@splinetool/react-spline'), {
     ),
 });
 
+import { useState } from 'react';
+
 export function InteractiveRobotSpline({ scene, className }) {
+    const [isLoading, setIsLoading] = useState(true);
+
     return (
         <div className={`${className} relative`}>
+            {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-950 z-10 transition-opacity duration-500">
+                    <div className="w-12 h-12 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin"></div>
+                </div>
+            )}
             <Spline
                 scene={scene}
                 className="w-full h-full"
+                onLoad={() => setIsLoading(false)}
             />
             {/* Spline Badge Hider */}
             <div className="absolute bottom-2 right-4 w-36 h-12 bg-gray-950 z-50 pointer-events-none" />

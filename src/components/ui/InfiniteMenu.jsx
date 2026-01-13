@@ -604,7 +604,8 @@ class InfiniteGridMenu {
         this.onMovementChange = onMovementChange || (() => { });
         this.scaleFactor = scale;
         this.camera.position[2] = 3 * scale;
-        this.#init(onInit);
+        this.onLoad = onInit; // Store the onInit callback
+        this.#init();
     }
 
     resize() {
@@ -631,7 +632,7 @@ class InfiniteGridMenu {
         requestAnimationFrame(t => this.run(t));
     }
 
-    #init(onInit) {
+    #init() {
         this.gl = this.canvas.getContext('webgl2', { antialias: true, alpha: false });
         const gl = this.gl;
         if (!gl) {
@@ -690,7 +691,7 @@ class InfiniteGridMenu {
         this.#updateProjectionMatrix(gl);
         this.resize();
 
-        if (onInit) onInit(this);
+        if (this.onLoad) this.onLoad(this);
     }
 
     #initTexture() {
@@ -713,7 +714,7 @@ class InfiniteGridMenu {
                         const img = new Image();
                         img.onload = () => resolve(img);
                         img.onerror = () => {
-                            console.error(`Failed to load image: ${item.image}`);
+                            console.error('Failed to load image:', item.image);
                             resolve(null);
                         };
                         img.src = item.image;
@@ -721,10 +722,11 @@ class InfiniteGridMenu {
             )
         ).then(images => {
             images.forEach((img, i) => {
-                if (!img) return; // Skip failed images
-                const x = (i % this.atlasSize) * cellSize;
-                const y = Math.floor(i / this.atlasSize) * cellSize;
-                ctx.drawImage(img, x, y, cellSize, cellSize);
+                if (img) {
+                    const x = (i % this.atlasSize) * cellSize;
+                    const y = Math.floor(i / this.atlasSize) * cellSize;
+                    ctx.drawImage(img, x, y, cellSize, cellSize);
+                }
             });
 
             gl.bindTexture(gl.TEXTURE_2D, this.tex);
@@ -915,11 +917,13 @@ const defaultItems = [
     }
 ];
 
-export default function InfiniteMenu({ items = [], scale = 1.0 }) {
+export default function InfiniteMenu({ items = [], scale = 1.0, onInit }) {
     const canvasRef = useRef(null);
+    const menuRef = useRef(null);
     const [activeItem, setActiveItem] = useState(null);
     const [isMoving, setIsMoving] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -929,31 +933,42 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
             const itemIndex = index % items.length;
             setActiveItem(items[itemIndex]);
         };
-
-        if (canvas) {
-            sketch = new InfiniteGridMenu(
-                canvas,
-                items.length ? items : defaultItems,
-                handleActiveItem,
-                setIsMoving,
-                sk => sk.run(),
-                scale
-            );
-        }
-
         const handleResize = () => {
-            if (sketch) {
-                sketch.resize();
+            if (menuRef.current) {
+                menuRef.current.resize();
             }
         };
 
-        window.addEventListener('resize', handleResize);
-        handleResize();
+        if (canvasRef.current && !menuRef.current) {
+            menuRef.current = new InfiniteGridMenu(
+                canvasRef.current,
+                items.length ? items : defaultItems,
+                (index) => {
+                    // onActiveItemChange
+                    const itemIndex = index % items.length;
+                    setActiveItem(items[itemIndex]);
+                },
+                (moving) => {
+                    // onMovementChange
+                    setIsMoving(moving);
+                },
+                (menu) => {
+                    // onInit (images loaded)
+                    setIsLoading(false);
+                    if (onInit) onInit(menu);
+                },
+                scale
+            );
+
+            menuRef.current.run();
+            window.addEventListener('resize', handleResize);
+        }
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            menuRef.current = null;
         };
-    }, [items, scale]);
+    }, [items, onInit, scale]);
 
     const handleButtonClick = (e) => {
         e.stopPropagation(); // Prevent closing immediately
@@ -967,6 +982,11 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
 
     return (
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
+                    <div className="w-12 h-12 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin"></div>
+                </div>
+            )}
             <canvas
                 id="infinite-grid-menu-canvas"
                 ref={canvasRef}

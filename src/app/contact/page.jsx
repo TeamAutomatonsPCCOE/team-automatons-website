@@ -165,8 +165,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-white mb-1">Call Us</h3>
-                                        <a href="tel:+918625934384" className="hover:text-purple-300 transition-colors">
-                                            +91 8625934384
+                                        <a href="tel:+919561014589" className="hover:text-purple-300 transition-colors">
+                                            +91 9561014589
                                         </a>
                                     </div>
                                 </div>

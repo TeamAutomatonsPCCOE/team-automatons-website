@@ -35,7 +35,7 @@ const items = [
         description: 'Working together to solve complex engineering challenges.'
     },
     {
-        image: '/gallery/_MG_8332 (2).JPG.jpg',
+        image: '/gallery/MG_8332_2.jpg',
         link: '#',
         title: 'Robocon 2018',
         description: 'ném còn (throwing shuttlecock) Robot '
@@ -155,6 +155,12 @@ const items = [
         description: '  '
     },
     {
+        image: '/gallery/IRC 25 Day1 [DoPy] 18.jpg',
+        link: '#',
+        title: 'IRC 2025',
+        description: 'Team Automatons in IRC 2025.'
+    },
+    {
         image: '/gallery/ROBOCON 2017 bot1.JPG',
         link: '#',
         title: 'Robocon 2017',
@@ -172,12 +178,7 @@ const items = [
         title: 'Robocon 2025',
         description: 'Team Automatons in Robocon 2025.'
     },
-    {
-        image: '/gallery/IRC 25 Day1 [DoPy] 18.jpg',
-        link: '#',
-        title: 'IRC 2025',
-        description: 'Team Automatons in IRC 2025.'
-    },
+
     {
         image: '/gallery/IRC 25 Day1 [DoPy] 21.jpg',
         link: '#',

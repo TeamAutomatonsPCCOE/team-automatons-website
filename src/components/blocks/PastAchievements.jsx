@@ -38,7 +38,7 @@ const legacyData = [
         year: "2024",
         type: "single",
         title: "ROBOCON 2024",
-        videoLink: "https://youtu.be/DXIuxyKSqgY?si=1GdR49Y3JrqN_ng5",
+        videoLink: "https://youtu.be/u9XgVcpHGUQ?si=wELGcRULSgiZsxk-",
         description: (
             <>
                 The theme for the 2024 Asia-Pacific Broadcasting Union (ABU) Robocon was "Harvest Day", hosted by Vietnam which was inspired by rice cultivation on terraced fields.
@@ -52,7 +52,7 @@ const legacyData = [
         year: "2023",
         type: "single",
         title: "ROBOCON 2023",
-        videoLink: "https://youtu.be/mOXJfGUyQSk?si=7CLtjkp6j0DatDMs",
+        videoLink: "https://youtu.be/VYY-UYbyTS4?si=uJDM_QN3EllCLVwH",
         description: (
             <>
                 The competition is to cast flowers over Angkor Wat by the corporation of a rabbit robot and an elephant robot. The actual competition is "Ring Toss Game" using blue and red rings made of rubber hoses instead of flowers.
@@ -65,7 +65,7 @@ const legacyData = [
     {
         year: "2022",
         title: "ROBOCON 2022",
-        videoLink: "https://youtu.be/o7pQHNqg1bE?si=rvksWLzVxY9O5jJG",
+        videoLink: "https://youtu.be/ZAfNqOD0Rho?si=BCg3OkFvAGDZRcWC",
         description: (
             <>
                 The 2022 competition featured an exhilarating game of Lagori, where robots from two teams—Red and Blue—competed against each other.
@@ -78,7 +78,7 @@ const legacyData = [
     {
         year: "2021",
         title: "ROBOCON 2021",
-        videoLink: "https://youtu.be/lFrL7hwMCz8?si=jquDCUgElr-VpdW_",
+        videoLink: "https://youtu.be/sucBw6OjXAg?si=BaSZ_L4MT7pep9zn",
         description: (
             <>
                 Throwing arrows into pots, a traditional etiquette and game in ancient China.
@@ -91,7 +91,7 @@ const legacyData = [
     {
         year: "2020",
         title: "ROBOCON 2020",
-        videoLink: "https://youtu.be/9Gwg4JXFjV0?si=39sJq7iZTieKZAZm",
+        videoLink: "https://youtu.be/N7jgzEphvzI?si=tYE9Ojc_TDOoF6gA",
         description: (
             <>
                 ROBO RUGBY 7s, a game based on Fiji's national sport, where game field and zones were designed like a rugby ground.
@@ -104,7 +104,7 @@ const legacyData = [
     {
         year: "2019",
         title: "ROBOCON 2019",
-        videoLink: "https://youtu.be/tAvVfpZSpZo?si=hQZRMk7EgPwy-YrM",
+        videoLink: "https://youtu.be/2xEbPdc8WMg?si=DS1Aii2D0Su3d70r",
         description: (
             <>
                 The theme was "Sharing the knowledge". It is related to the Urtuu system of Mongolian tradition.
@@ -117,7 +117,7 @@ const legacyData = [
     {
         year: "2018",
         title: "ROBOCON 2018",
-        videoLink: "https://youtu.be/GAjVA2u-_1s?si=6ltKaU73Hyc1o-1Y",
+        videoLink: "https://youtu.be/pohmBW16ZXw?si=KsN88tMjp62Vmp98",
         description: (
             <>
                 The theme comes from a traditional game in ethnic region of Vietnam, namely ném còn (throwing shuttlecock).
@@ -130,7 +130,7 @@ const legacyData = [
     {
         year: "2017",
         title: "ROBOCON 2017",
-        videoLink: "https://youtu.be/boUMyBLQ_O0?si=ErIIq8-XF2oQ53uP",
+        videoLink: "https://youtu.be/yXHCQoKCRLk?si=7UBrbpKNPBm-53uC",
         description: (
             <>
                 The theme of ABU ASIA-PACIFIC ROBOCON 2017 was “Asobi”(play) which encouraged playful and original robot designs.
