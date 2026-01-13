@@ -31,7 +31,7 @@ function getFiles(dir) {
     return files;
 }
 
-const TARGET_FOLDERS = ['logos', 'team', 'gallery'];
+const TARGET_FOLDERS = ['logos', 'team', 'gallery', 'irc'];
 
 (async function () {
     console.log(`Scanning specific directories (${TARGET_FOLDERS.join(', ')}) for images...`);

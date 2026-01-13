@@ -14,7 +14,7 @@ export function OurExperienceSection() {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.2 }
+            { threshold: 0.1 }
         );
 
         if (ref.current) {
@@ -45,10 +45,10 @@ export function OurExperienceSection() {
     }, []);
 
     return (
-        <section className="relative w-full py-32 px-4 md:px-8 bg-black overflow-hidden">
+        <section className="relative w-full pt-0 pb-16 px-4 md:px-8 bg-black overflow-hidden">
             <div
                 ref={ref}
-                className={`max-w-[1000px] mx-auto flex flex-col items-center text-center transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                className={`max-w-[1000px] mx-auto flex flex-col items-center text-center transition-all duration-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
             >
 
                 {/* Section Header - First */}

@@ -15,14 +15,14 @@ const missions = [
         title: "R&DO",
         subtitle: "Reconnaissance and Delivery Operation",
         description: "The Reconnaissance and Autonomous Delivery Operation challenged our rover’s navigation, perception, and autonomy capabilities. In the reconnaissance phase, the rover explored a wide terrain, identified scattered objects, and logged their GPS coordinates with visual confirmation. Strategic path planning was crucial to maximize coverage within limited time. During the autonomous delivery phase, the rover picked up selected objects and delivered them to designated locations using GPS-based navigation. Full autonomy during delivery demanded accurate localization, obstacle handling, and stable control logic. Our robotic arm and storage mechanism played a key role in reliable object handling. This mission emphasized real-world challenges faced in extraterrestrial logistics and supply operations. Successfully completing it demonstrated our rover’s readiness for long-range, semi-autonomous missions.",
-        image: "/irc/Rado.webp" // Dummy image
+        image: "/irc/IMG_8629.jpg" // Dummy image
     },
     {
         id: "ID&MO",
         title: "ID&MO",
         subtitle: "Instrument Deployment and Maintenance Operation",
         description: "The IDMO task focused on precision manipulation and fine motor control using a robotic arm. Our rover performed complex maintenance actions such as opening panels, operating switches, turning knobs, and inserting connectors. Each operation demanded high positional accuracy and stable vision feedback from onboard cameras. In the deployment phase, the rover transported instrument caches and placed them in predefined orientations at designated locations. After deployment, the rover identified and relayed coded information displayed on the instruments to the base station team. This task closely simulated astronaut-assistive robotic operations on Mars. It tested not only mechanical design but also control algorithms and operator coordination. IDMO truly highlighted the importance of dexterity and reliability in space robotics.",
-        image: "/irc/lighthouse.jpg" // Dummy image
+        image: "/irc/IMG_8629.jpg" // Dummy image
     },
     {
         id: "PIMA",
@@ -33,7 +33,7 @@ const missions = [
     }
 ];
 
-const AnimatedBlock = ({ mission, index, isAlternate }) => {
+const AnimatedBlock = ({ mission, index, isAlternate, isLast }) => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
 
@@ -58,7 +58,7 @@ const AnimatedBlock = ({ mission, index, isAlternate }) => {
     return (
         <div
             ref={ref}
-            className={`flex flex-col lg:flex-row ${isAlternate ? 'lg:flex-row-reverse' : ''} gap-12 lg:gap-24 items-center mb-32 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+            className={`flex flex-col lg:flex-row ${isAlternate ? 'lg:flex-row-reverse' : ''} gap-12 lg:gap-24 items-center ${isLast ? '' : 'mb-20'} transition-all duration-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
         >
             {/* Image Side with Always Glowing Border */}
             <div className="w-full lg:w-1/2">
@@ -71,7 +71,7 @@ const AnimatedBlock = ({ mission, index, isAlternate }) => {
                         <img
                             src={mission.image}
                             alt={mission.title}
-                            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                            className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                         />
                     </div>
                 </div>
@@ -114,7 +114,7 @@ const AnimatedBlock = ({ mission, index, isAlternate }) => {
 
 export function IRCApproachSection() {
     return (
-        <section className="relative w-full py-16 px-4 md:px-8 bg-black overflow-hidden">
+        <section className="relative w-full pt-16 pb-0 px-4 md:px-8 bg-black overflow-hidden">
             <div className="max-w-[1400px] mx-auto relative z-10">
 
                 {/* Section Header */}
@@ -132,6 +132,7 @@ export function IRCApproachSection() {
                         mission={mission}
                         index={index}
                         isAlternate={index % 2 !== 0}
+                        isLast={index === missions.length - 1}
                     />
                 ))}
 
