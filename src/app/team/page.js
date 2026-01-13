@@ -5,6 +5,7 @@ import { Navbar } from '@/components/ui/navbar';
 import { Footer } from '@/components/ui/footer-section';
 import { TeamTimeline } from '@/components/blocks/TeamTimeline';
 import { TeamProfileCard } from '@/components/ui/TeamProfileCard';
+import { OpenSourceSection } from '@/components/blocks/OpenSourceSection';
 import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 // Team Member Data
@@ -18,7 +19,7 @@ const TEAM_DATA = {
                 role: 'Head Admin',
                 companyRole: '',
                 photo: '/team/2026/Rajvardhan.webp',
-                email: 'rajvardhanpawar57@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=rajvardhanpawar57@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/rajvardhan-pawar-66981a259'
             },
             {
@@ -27,7 +28,7 @@ const TEAM_DATA = {
                 role: 'Co - Head Admin (Robocon)',
                 companyRole: 'Firmware Engineer - Addverb ',
                 photo: '/team/2026/Harshvardhan.webp',
-                email: 'harshvardhanmule0203@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=harshvardhanmule0203@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/harshvardhan-mule'
             },
             {
@@ -36,7 +37,7 @@ const TEAM_DATA = {
                 role: 'Co - Head Admin(Space Robotics)',
                 companyRole: '',
                 photo: '/team/2026/Prasad.webp',
-                email: 'prasadlokh@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=prasadlokh@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/prasad-lokhande-a1591b275'
             },
             {
@@ -45,7 +46,7 @@ const TEAM_DATA = {
                 role: 'Mechanical Admin',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'ashwinilodade4@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=ashwinilodade4@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/ashwini-lodade-558814259'
             },
             {
@@ -54,7 +55,7 @@ const TEAM_DATA = {
                 role: 'Electronics Admin',
                 companyRole: '',
                 photo: '/team/2026/Krushna.webp',
-                email: 'hiwarekrishna0@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=hiwarekrishna0@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/krushna-hiware-648480259'
             },
             {
@@ -63,7 +64,7 @@ const TEAM_DATA = {
                 role: 'Programming Admin',
                 companyRole: 'ML Engineer - Quantiphi',
                 photo: '/team/2026/Samiksha.webp',
-                email: 'samikshadhurve.28@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=samikshadhurve.28@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/samiksha-dhurve-8a0793257'
             },
             {
@@ -72,7 +73,7 @@ const TEAM_DATA = {
                 role: 'Networking Admin',
                 companyRole: '',
                 photo: '/team/2026/Aarya.webp',
-                email: 'aaryafurade@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=aaryafurade@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/aarya-furade-537434210?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -81,7 +82,7 @@ const TEAM_DATA = {
                 role: 'Finance Admin',
                 companyRole: '',
                 photo: '/team/2026/Om P.webp',
-                email: 'omparekh425@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=omparekh425@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/om-parekh-365843259'
             },
             {
@@ -90,7 +91,7 @@ const TEAM_DATA = {
                 role: 'HR',
                 companyRole: 'Product Manager - Philips ',
                 photo: '/team/2026/Shruti.webp',
-                email: 'shrutidate2003@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=shrutidate2003@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/shruti-date-b56813259'
             },
             {
@@ -108,7 +109,7 @@ const TEAM_DATA = {
                 role: 'Admin ',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'akshaywani1382004@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshaywani1382004@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/akshay-wani2004'
             },
             {
@@ -117,7 +118,7 @@ const TEAM_DATA = {
                 role: 'Admin ',
                 companyRole: '(Previous) ROS intern - Technowings Automation Pvt. Ltd. ',
                 photo: '/team/2026/Nikhil.webp',
-                email: 'nikhiljagdale200414@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=nikhiljagdale200414@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/nikhil--jagdale'
             },
             {
@@ -137,7 +138,7 @@ const TEAM_DATA = {
                 role: 'Managing Director',
                 companyRole: '',
                 photo: '/team/2026/Piyush.webp',
-                email: 'piyushspatil225@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=piyushspatil225@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/piyush-patil-8630ab292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -146,7 +147,7 @@ const TEAM_DATA = {
                 role: 'Co-Managing Director (Robocon)',
                 companyRole: '',
                 photo: '/team/2026/Vardhan.webp',
-                email: 'vardhansk18115@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=vardhansk18115@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/vardhan-santosh-khinvasara-9a79a8296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -155,7 +156,7 @@ const TEAM_DATA = {
                 role: 'Co-Managing Director (Space Robotics)',
                 companyRole: '',
                 photo: '/team/2026/Atharva.webp',
-                email: 'atharva.junghare2005@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=atharva.junghare2005@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/atharva-junghare-681782278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
             },
             {
@@ -164,7 +165,7 @@ const TEAM_DATA = {
                 role: 'Mechanical Head',
                 companyRole: '',
                 photo: '/team/2026/Shreyash.webp',
-                email: 'shreyash.jagadale.01@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=shreyash.jagadale.01@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/shreyash-jagadale-6930b3292/'
             },
             {
@@ -173,7 +174,7 @@ const TEAM_DATA = {
                 role: 'Electronics Head',
                 companyRole: '',
                 photo: '/team/2026/Chinmay.webp',
-                email: 'pchinmay834@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=pchinmay834@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/chinmay-patil-a430b0292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -182,7 +183,7 @@ const TEAM_DATA = {
                 role: 'Programming Head',
                 companyRole: '',
                 photo: '/team/2026/Om J.webp',
-                email: 'omjagtap300@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=omjagtap300@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/om-jagtap-506a76300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -200,7 +201,7 @@ const TEAM_DATA = {
                 role: 'Sr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/Aditya.webp',
-                email: 'aditya.yadav3514@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=aditya.yadav3514@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/aditya-yadav-20341b308?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -209,7 +210,7 @@ const TEAM_DATA = {
                 role: 'Sr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/Sneha.webp',
-                email: 'sneha.pawar23@pccoepune.org',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=sneha.pawar23@pccoepune.org',
                 linkedin: 'https://www.linkedin.com/in/sneha-pawar-43b43a337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -227,7 +228,7 @@ const TEAM_DATA = {
                 role: 'Sr. Electronics Circuit Designer',
                 companyRole: '',
                 photo: '/team/2026/Anushree.webp',
-                email: 'anushreesnarkhede@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=anushreesnarkhede@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/anushree-narkhede-7a84a9292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -236,7 +237,7 @@ const TEAM_DATA = {
                 role: 'Sr. Electronics Circuit Designer',
                 companyRole: '',
                 photo: '/team/2026/Devansh.webp',
-                email: 'devanshjadhav2005@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=devanshjadhav2005@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/devansh-jadhav-1889b932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -245,7 +246,7 @@ const TEAM_DATA = {
                 role: 'Sr. Electronics Circuit Designer',
                 companyRole: '',
                 photo: '/team/2026/Gauri.webp',
-                email: 'gauritarale124@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=gauritarale124@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/gauri-tarale-a690b0292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -254,7 +255,7 @@ const TEAM_DATA = {
                 role: 'Sr. Electronics Circuit Designer',
                 companyRole: '',
                 photo: '/team/2026/Shreya Z.webp',
-                email: 'shreyazankar021@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=shreyazankar021@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/shreyazankar021'
             },
             {
@@ -272,7 +273,7 @@ const TEAM_DATA = {
                 role: 'Sr. CV Engineer',
                 companyRole: '',
                 photo: '/team/2026/Sujata.webp',
-                email: 'sujata.automatons3@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=sujata.automatons3@gmail.com',
                 linkedin: 'https://www.linkedin.com/me?trk=p_mwlite_profile_view-secondary_nav'
             },
             {
@@ -281,7 +282,7 @@ const TEAM_DATA = {
                 role: 'Sr. ROS Engineer',
                 companyRole: '',
                 photo: '/team/2026/Yash.webp',
-                email: 'yash.sonje23@pccoepune.org',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=yash.sonje23@pccoepune.org',
                 linkedin: 'https://www.linkedin.com/in/yash-sonje-5b6812292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             }
         ],
@@ -292,7 +293,7 @@ const TEAM_DATA = {
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/Dhruvi.webp',
-                email: '2311dhruvipatel@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=2311dhruvipatel@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/dhruvipatel2311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -301,7 +302,7 @@ const TEAM_DATA = {
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/Himanshu.webp',
-                email: 'himanshu.warke@24pccoepune.org',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=himanshu.warke@24pccoepune.org',
                 linkedin: 'https://www.linkedin.com/in/himanshu-mech?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -310,7 +311,7 @@ const TEAM_DATA = {
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'manasid808@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=manasid808@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/manasi-dhake-52723437b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -328,7 +329,7 @@ const TEAM_DATA = {
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'prakhardubey797@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=prakhardubey797@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/prakhar-dubey-b3b942344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -337,7 +338,7 @@ const TEAM_DATA = {
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'prataprandive2702@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=prataprandive2702@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/pratap-randive-8b8846302?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -346,7 +347,7 @@ const TEAM_DATA = {
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'priya.naik24@pccoepune.org',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=priya.naik24@pccoepune.org',
                 linkedin: 'https://www.linkedin.com/in/priya-naik-670a0632a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
 
@@ -356,7 +357,7 @@ const TEAM_DATA = {
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'siddhesh192006@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=siddhesh192006@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/siddhesh-kurundkar-b2b03337a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -374,7 +375,7 @@ const TEAM_DATA = {
                 role: 'Jr. Embedded Engineer',
                 companyRole: '',
                 photo: '/team/2026/Atreya.webp',
-                email: 'atreyaxr@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=atreyaxr@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/atreya-r/'
             },
             {
@@ -383,7 +384,7 @@ const TEAM_DATA = {
                 role: 'Jr. Embedded Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'ashnakankaria05@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=ashnakankaria05@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/ashna-kankaria-99821732b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -392,7 +393,7 @@ const TEAM_DATA = {
                 role: 'Jr. Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'atharvaphadke8@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=atharvaphadke8@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/atharvap8/'
             },
             {
@@ -410,7 +411,7 @@ const TEAM_DATA = {
                 role: 'Jr. Electronics Circuit Design Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'laxmichavhan003@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=laxmichavhan003@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/laxmi-chavhan-47121732b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
             },
             {
@@ -419,7 +420,7 @@ const TEAM_DATA = {
                 role: 'Jr. Electronics Circuit Design Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.webp',
-                email: 'bahekarmayank@gnail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=bahekarmayank@gnail.com',
                 linkedin: 'https://www.linkedin.com/in/mayank-bahekar-08b79a239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
             },
             {
@@ -428,7 +429,7 @@ const TEAM_DATA = {
                 role: 'Jr. Electronics Circuit Design Engineer',
                 companyRole: '',
                 photo: '/team/2026/Shreya J.webp',
-                email: 'shreyajanorkar07@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=shreyajanorkar07@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/shreya-janorkar-b53126328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -437,7 +438,7 @@ const TEAM_DATA = {
                 role: 'Jr. Electronics Circuit Design Engineer',
                 companyRole: '',
                 photo: '/team/2026/Siddhika.webp',
-                email: 'siddhikapatil14@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=siddhikapatil14@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/siddhika-patil-294a0a32a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -446,7 +447,7 @@ const TEAM_DATA = {
                 role: 'Jr. Electronics Circuit Design Engineer',
                 companyRole: '',
                 photo: '/team/2026/Om B.webp',
-                email: 'omborhade1506@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=omborhade1506@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/om-borhade-071a1032a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -464,7 +465,7 @@ const TEAM_DATA = {
                 role: 'Jr. Embedded Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.webp',
-                email: 'tanvi.n.patil@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=tanvi.n.patil@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/tanvi-patil-8aa21532b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -482,7 +483,7 @@ const TEAM_DATA = {
                 role: 'Jr. ROS Engineer',
                 companyRole: '',
                 photo: '/team/2026/Ayush G.webp',
-                email: 'ayush.gade241@pccoepune.org',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=ayush.gade241@pccoepune.org',
                 linkedin: 'https://www.linkedin.com/in/ayush-gade-34b226368?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -491,7 +492,7 @@ const TEAM_DATA = {
                 role: 'Jr. ROS Engineer',
                 companyRole: '',
                 photo: '/team/2026/Gandharva.webp',
-                email: 'gandharvgodse2007@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=gandharvgodse2007@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/gandharva-godse-a3130a32b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -500,7 +501,7 @@ const TEAM_DATA = {
                 role: 'Jr. CV Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
-                email: 'hrushijagtap333@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=hrushijagtap333@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/hrushikesh-jagtap-77b64232b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
             {
@@ -509,7 +510,7 @@ const TEAM_DATA = {
                 role: 'Jr. CV Engineer',
                 companyRole: '',
                 photo: '/team/2026/Krish.webp',
-                email: 'krishpatelnsk@gmail.com',
+                email: 'https://mail.google.com/mail/?view=cm&fs=1&to=krishpatelnsk@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/krish-patel-a52a0532a/'
             },
             {
@@ -1040,6 +1041,10 @@ export default function TeamPage() {
                                     src={getCloudinaryUrl(yearData.groupPhoto)}
                                     alt={`Team Automatons ${selectedYear}`}
                                     className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                        // Fallback if image fails
+                                        e.target.style.display = 'none';
+                                    }}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                                 <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
@@ -1083,6 +1088,7 @@ export default function TeamPage() {
 
             </div>
 
+            <OpenSourceSection />
             <Footer />
         </div>
     );

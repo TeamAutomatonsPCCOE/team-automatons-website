@@ -171,10 +171,31 @@ export default function RoboconPage() {
                                 The competition emphasizes discipline, strategy, and teamwork, inspired by Kung Fu philosophy and training.
                             </p>
 
-                            <div className="mt-8">
+                            <div className="mt-8 flex flex-wrap items-center gap-4">
                                 <span className="inline-block px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-sm font-mono">
                                     Hong Kong, China
                                 </span>
+
+                                <a
+                                    href="https://youtu.be/HL3Va9hd-0o?si=-0HVNmztbxSeza2V"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-500/30 text-red-400 text-sm font-medium hover:bg-red-600/20 hover:border-red-500/50 transition-all group/video"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="w-4 h-4 group-hover/video:scale-110 transition-transform"
+                                    >
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    Watch Theme Video
+                                </a>
                             </div>
                         </motion.div>
 

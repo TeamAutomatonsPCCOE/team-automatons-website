@@ -153,7 +153,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-white mb-1">Email Us</h3>
-                                        <a href="mailto:automatons.robotics@gmail.com" className="hover:text-purple-300 transition-colors">
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=automatons.robotics@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition-colors">
                                             automatons.robotics@gmail.com
                                         </a>
                                     </div>

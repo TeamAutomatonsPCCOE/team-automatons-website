@@ -18,6 +18,11 @@ export function getCloudinaryUrl(src) {
         return src; // Return external URLs as is
     }
 
+    // Fallback to local path if Cloudinary is not desired or in development
+    if (process.env.NEXT_PUBLIC_USE_LOCAL_IMAGES === 'true' || process.env.NODE_ENV === 'development') {
+        return src.startsWith('/') ? src : `/${src}`;
+    }
+
     // Remove leading slash
     const cleanPath = src.startsWith('/') ? src.slice(1) : src;
 

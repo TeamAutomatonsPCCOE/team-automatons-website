@@ -84,7 +84,7 @@ const SlideshowBlock = ({ item, index, isAlternate }) => {
                                 key={idx}
                                 src={img}
                                 alt={`${item.title} ${idx}`}
-                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === currentImage ? 'opacity-90' : 'opacity-0'}`}
+                                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${idx === currentImage ? 'opacity-90' : 'opacity-0'}`}
                             />
                         ))}
                     </div>

@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isActivitiesOpen, setIsActivitiesOpen] = useState(false);
+    const pathname = usePathname();
 
     const navItems = [
         { label: "Home", href: "/" },
@@ -26,6 +28,8 @@ export function Navbar() {
         { label: "Contact Us", href: "/contact" },
         { label: "Our Team", href: "/team" },
     ];
+
+    const isActive = (path) => pathname === path;
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50 bg-gray-950/80 backdrop-blur-md border-b border-white/10 px-6 py-4">
@@ -49,7 +53,10 @@ export function Navbar() {
                             {item.dropdown ? (
                                 <>
                                     <button
-                                        className="text-gray-300 group-hover:text-white group-hover:bg-white/10 px-3 py-1.5 rounded-full transition-all text-sm md:text-base font-medium whitespace-nowrap flex items-center gap-1"
+                                        className={`px-3 py-1.5 rounded-full transition-all text-sm md:text-base font-medium whitespace-nowrap flex items-center gap-1 ${pathname.startsWith(item.href)
+                                                ? "text-white bg-white/20 shadow-lg shadow-white/5"
+                                                : "text-gray-300 hover:text-white hover:bg-white/10"
+                                            }`}
                                     >
                                         {item.label}
                                         <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
@@ -61,7 +68,10 @@ export function Navbar() {
                                             <Link
                                                 key={subItem.label}
                                                 href={subItem.href}
-                                                className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                                                className={`block px-4 py-3 text-sm transition-colors ${isActive(subItem.href)
+                                                        ? "bg-white/10 text-white"
+                                                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                                                    }`}
                                             >
                                                 {subItem.label}
                                             </Link>
@@ -71,7 +81,10 @@ export function Navbar() {
                             ) : (
                                 <Link
                                     href={item.href}
-                                    className="text-gray-300 hover:text-white hover:bg-white/10 px-3 py-1.5 rounded-full transition-all text-sm md:text-base font-medium whitespace-nowrap"
+                                    className={`px-3 py-1.5 rounded-full transition-all text-sm md:text-base font-medium whitespace-nowrap ${isActive(item.href)
+                                            ? "text-white bg-white/20 shadow-lg shadow-white/5"
+                                            : "text-gray-300 hover:text-white hover:bg-white/10"
+                                        }`}
                                 >
                                     {item.label}
                                 </Link>
@@ -99,7 +112,10 @@ export function Navbar() {
                                     <>
                                         <button
                                             onClick={() => setIsActivitiesOpen(!isActivitiesOpen)}
-                                            className="w-full flex items-center justify-between text-left text-gray-300 hover:text-white hover:bg-white/10 px-4 py-3 rounded-lg transition-all text-base font-medium"
+                                            className={`w-full flex items-center justify-between text-left px-4 py-3 rounded-lg transition-all text-base font-medium ${pathname.startsWith(item.href)
+                                                    ? "text-white bg-white/20"
+                                                    : "text-gray-300 hover:text-white hover:bg-white/10"
+                                                }`}
                                         >
                                             {item.label}
                                             <ChevronDown className={`w-4 h-4 transition-transform ${isActivitiesOpen ? 'rotate-180' : ''}`} />
@@ -113,7 +129,10 @@ export function Navbar() {
                                                         key={subItem.label}
                                                         href={subItem.href}
                                                         onClick={() => setIsMenuOpen(false)} // Close menu on click
-                                                        className="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                                                        className={`block px-4 py-2 text-sm rounded-lg transition-colors ${isActive(subItem.href)
+                                                                ? "text-white bg-white/10"
+                                                                : "text-gray-400 hover:text-white hover:bg-white/5"
+                                                            }`}
                                                     >
                                                         {subItem.label}
                                                     </Link>
@@ -125,7 +144,10 @@ export function Navbar() {
                                     <Link
                                         href={item.href}
                                         onClick={() => setIsMenuOpen(false)} // Close menu on click
-                                        className="block text-gray-300 hover:text-white hover:bg-white/10 px-4 py-3 rounded-lg transition-all text-base font-medium"
+                                        className={`block px-4 py-3 rounded-lg transition-all text-base font-medium ${isActive(item.href)
+                                                ? "text-white bg-white/20"
+                                                : "text-gray-300 hover:text-white hover:bg-white/10"
+                                            }`}
                                     >
                                         {item.label}
                                     </Link>
