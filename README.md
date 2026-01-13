@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🤖 Team Automatons Website
 
-## Getting Started
+**Raising to the challenge raised by dreams.**
 
-First, run the development server:
+The Team Automatons Website is the official portfolio and information hub for Team Automatons, a collegiate robotics team from Pimpri Chinchwad College of Engineering (PCCOE). It showcases the team’s engineering achievements, competitive journey, members, and ongoing activities, while also serving as a point of contact for sponsors, collaborators, and prospective recruits.
+
+---
+
+## 🌐 Live Website
+
+- Live Site: https://teamautomatons.in  
+- GitHub Repository: https://github.com/TeamAutomatonsPCCOE/team-automatons-website  
+
+---
+
+## 🏫 About the Team
+
+Team Automatons is a student-run robotics team focused on designing, building, and competing with advanced robotic systems at national and international competitions.
+
+### Competition Focus
+- ABU Robocon (Robotics Contest)
+- International Rover Challenge (IRC)
+
+---
+
+## ✨ Key Features
+
+### 📄 Website Pages
+- Home – Landing page with interactive 3D hero section  
+- Team – Member profiles across multiple academic years (2025, 2026)  
+- Sponsors – Partners and supporters  
+- Gallery – Interactive WebGL-based 3D image sphere  
+- IRC – International Rover Challenge participation  
+- Robocon – ABU Robocon journey and details  
+- Activities – Workshops, events, and outreach  
+- Achievements – Awards and legacy  
+- Contact – Contact form and team location  
+
+### 🎨 UI / UX Highlights
+- Interactive Spline robot models and WebGL-based gallery experiences  
+- Framer Motion scroll reveals and pixel-style hover cards  
+- Animated gradient borders  
+- Custom first-visit video intro overlay  
+- Dynamic imports for heavy 3D components and optimized media delivery  
+
+---
+
+## 🧰 Tech Stack
+
+### Frontend
+- Next.js 16.1 (App Router)
+- JavaScript (React 19)
+
+### Styling
+- Tailwind CSS v4
+- Vanilla CSS
+
+### Animation & 3D
+- Framer Motion  
+- @splinetool/react-spline  
+- React Three Fiber / Three.js  
+- gl-matrix  
+
+### Services
+- Cloudinary – Image and video optimization  
+- Nodemailer – Email handling via API routes  
+
+### Hosting & Deployment
+- Vercel (GitHub-connected CI/CD)
+
+---
+## 🚀 Local Development
+
+Follow these steps to run the project locally:
 
 ```bash
+git clone https://github.com/TeamAutomatonsPCCOE/team-automatons-website.git
+cd team-automatons-website
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+Open http://localhost:3000 in your browser.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Requirements
+- Node.js
+- npm / yarn / pnpm
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🤝 Contributing
 
-## Learn More
+Contributions are welcome and appreciated.  
+This project follows the standard open-source contribution workflow.
 
-To learn more about Next.js, take a look at the following resources:
+### Steps to contribute
+- Fork the repository
+- Create a new branch for your feature or fix
+- Make your changes
+- Commit with a clear message
+- Open a Pull Request
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Please ensure your changes are clean, tested, and aligned with the project’s goals.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Note:** Direct pushes to the main branch are restricted to core team members only.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📬 Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For collaboration, sponsorship, or recruitment inquiries:
+
+- Email: automatons.robotics@gmail.com
+
+---
+
+## ⭐ Support the Project
+
+If you find this project useful or inspiring:
+- Star the repository
+- Fork the repository
+- Share feedback or ideas via issues or pull requests
+
+---
+
+## 📄 License
+
+License information is not specified.
+
+
