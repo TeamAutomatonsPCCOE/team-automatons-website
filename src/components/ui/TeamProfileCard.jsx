@@ -35,8 +35,9 @@ export function TeamProfileCard({ name, role, companyRole, photo, email, linkedi
                         <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-4 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
                             {email && (
                                 <a
-                                    href={email.startsWith('http') ? email : `mailto:${email}`}
-                                    {...(email.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                                    href={email.startsWith('http') ? email : `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="p-3 rounded-full bg-purple-600 text-white shadow-[0_0_15px_purple] hover:scale-110 transition-transform"
                                 >
                                     <MailIcon />

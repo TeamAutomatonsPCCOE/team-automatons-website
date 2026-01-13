@@ -4,6 +4,7 @@ import { WhatWeDo } from '@/components/blocks/WhatWeDo'
 import { VisionMission } from '@/components/blocks/VisionMission'
 import LogoLoop from '@/components/ui/LogoLoop'
 import { Footer } from '@/components/ui/footer-section';
+import { OpenSourceSection } from '@/components/blocks/OpenSourceSection';
 import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 const partnerLogos = [
@@ -57,7 +58,9 @@ export default function Home() {
           fadeOutColor="#030712" // Match bg-gray-950 (hex approximation)
         />
       </section>
+      <OpenSourceSection />
+
       <Footer />
-    </main>
+    </main >
   );
 }

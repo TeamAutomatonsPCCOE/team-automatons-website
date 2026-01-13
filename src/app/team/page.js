@@ -5,6 +5,7 @@ import { Navbar } from '@/components/ui/navbar';
 import { Footer } from '@/components/ui/footer-section';
 import { TeamTimeline } from '@/components/blocks/TeamTimeline';
 import { TeamProfileCard } from '@/components/ui/TeamProfileCard';
+import { OpenSourceSection } from '@/components/blocks/OpenSourceSection';
 import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 // Team Member Data
@@ -1083,6 +1084,7 @@ export default function TeamPage() {
 
             </div>
 
+            <OpenSourceSection />
             <Footer />
         </div>
     );

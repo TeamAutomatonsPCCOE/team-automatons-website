@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Play } from 'lucide-react';
 import { Navbar } from '@/components/ui/navbar';
 import { Footer } from '@/components/ui/footer-section';
 
@@ -171,10 +172,19 @@ export default function RoboconPage() {
                                 The competition emphasizes discipline, strategy, and teamwork, inspired by Kung Fu philosophy and training.
                             </p>
 
-                            <div className="mt-8">
+                            <div className="mt-8 flex flex-wrap items-center gap-4">
                                 <span className="inline-block px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-sm font-mono">
                                     Hong Kong, China
                                 </span>
+                                <a
+                                    href="https://youtu.be/HL3Va9hd-0o?si=-0HVNmztbxSeza2V"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 hover:bg-red-600/20 border border-red-500/30 text-red-400 text-sm font-medium transition-all hover:scale-105"
+                                >
+                                    <Play className="w-4 h-4 fill-current" />
+                                    <span>Watch Theme Video</span>
+                                </a>
                             </div>
                         </motion.div>
 

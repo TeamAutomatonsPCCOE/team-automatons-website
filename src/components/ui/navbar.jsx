@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isActivitiesOpen, setIsActivitiesOpen] = useState(false);
+    const pathname = usePathname();
 
     const navItems = [
         { label: "Home", href: "/" },
@@ -44,40 +46,52 @@ export function Navbar() {
 
                 {/* DESKTOP Navigation (Hidden on Mobile) */}
                 <div className="hidden md:flex items-center gap-6 md:gap-8 overflow-visible">
-                    {navItems.map((item) => (
-                        <div key={item.label} className="relative group">
-                            {item.dropdown ? (
-                                <>
-                                    <button
-                                        className="text-gray-300 group-hover:text-white group-hover:bg-white/10 px-3 py-1.5 rounded-full transition-all text-sm md:text-base font-medium whitespace-nowrap flex items-center gap-1"
+                    {navItems.map((item) => {
+                        const isActive = pathname === item.href;
+                        return (
+                            <div key={item.label} className="relative group">
+                                {item.dropdown ? (
+                                    <>
+                                        <button
+                                            className={`px-3 py-1.5 rounded-full transition-all text-sm md:text-base font-medium whitespace-nowrap flex items-center gap-1 ${pathname.startsWith('/activities')
+                                                    ? "text-white bg-white/20 shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                                                    : "text-gray-300 group-hover:text-white group-hover:bg-white/10"
+                                                }`}
+                                        >
+                                            {item.label}
+                                            <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                                        </button>
+
+                                        {/* Desktop Dropdown Menu */}
+                                        <div className="absolute left-0 mt-2 w-56 bg-gray-900 border border-white/10 rounded-xl shadow-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50">
+                                            {item.dropdown.map((subItem) => (
+                                                <Link
+                                                    key={subItem.label}
+                                                    href={subItem.href}
+                                                    className={`block px-4 py-3 text-sm transition-colors ${pathname === subItem.href
+                                                            ? "text-white bg-white/10"
+                                                            : "text-gray-300 hover:text-white hover:bg-white/10"
+                                                        }`}
+                                                >
+                                                    {subItem.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        className={`px-3 py-1.5 rounded-full transition-all text-sm md:text-base font-medium whitespace-nowrap ${isActive
+                                                ? "text-white bg-white/20 shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                                                : "text-gray-300 hover:text-white hover:bg-white/10"
+                                            }`}
                                     >
                                         {item.label}
-                                        <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-                                    </button>
-
-                                    {/* Desktop Dropdown Menu */}
-                                    <div className="absolute left-0 mt-2 w-56 bg-gray-900 border border-white/10 rounded-xl shadow-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50">
-                                        {item.dropdown.map((subItem) => (
-                                            <Link
-                                                key={subItem.label}
-                                                href={subItem.href}
-                                                className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
-                                            >
-                                                {subItem.label}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </>
-                            ) : (
-                                <Link
-                                    href={item.href}
-                                    className="text-gray-300 hover:text-white hover:bg-white/10 px-3 py-1.5 rounded-full transition-all text-sm md:text-base font-medium whitespace-nowrap"
-                                >
-                                    {item.label}
-                                </Link>
-                            )}
-                        </div>
-                    ))}
+                                    </Link>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
 
                 {/* MOBILE Menu Button (Visible on Mobile) */}
