@@ -18,7 +18,7 @@
     "gl-matrix": "^3.4.4",
     "lucide-react": "^0.562.0",
     "motion": "^12.23.26",
-    "next": "15.1.4",
+    "next": "15.1.11",
     "nodemailer": "^7.0.12",
     "react": "19.0.0",
     "react-dom": "19.0.0",
