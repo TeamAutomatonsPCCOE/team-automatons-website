@@ -9,7 +9,7 @@ export const CLOUDINARY_FOLDER_PREFIX = 'team-automatons';
  * @param {string} src - The source URL (e.g. "/team/2026/Rajvardhan.webp")
  * @returns {string} - The optimized Cloudinary URL or original src if external/invalid
  */
-export function getCloudinaryUrl(src) {
+export function getCloudinaryUrl(src, transformations = 'w_500') {
     if (!src) return src;
 
 
@@ -28,9 +28,7 @@ export function getCloudinaryUrl(src) {
     const publicId = `${CLOUDINARY_FOLDER_PREFIX}/${pathWithoutExt}`;
     const encodedPublicId = publicId.split('/').map(encodeURIComponent).join('/');
 
-    // Construct URL with f_auto,q_auto,w_500 for optimization
-    // w_500 resizes to ~500px width, efficient for cards. 
-    // CSS object-cover handles the aspect ratio/cropping.
-    return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/f_auto,q_auto,w_500/v1/${encodedPublicId}`;
+    // Construct URL with f_auto,q_auto and custom transformations
+    return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/f_auto,q_auto,${transformations}/v1/${encodedPublicId}`;
 }
 

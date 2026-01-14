@@ -712,6 +712,7 @@ class InfiniteGridMenu {
                 item =>
                     new Promise(resolve => {
                         const img = new Image();
+                        img.crossOrigin = "anonymous";
                         img.onload = () => resolve(img);
                         img.onerror = () => {
                             console.error('Failed to load image:', item.image);

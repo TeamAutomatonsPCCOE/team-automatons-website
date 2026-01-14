@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { FacebookIcon, FrameIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from 'lucide-react';
+import { FacebookIcon, FrameIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, ChevronDown } from 'lucide-react';
 
 const footerLinks = [
     {
-        label: 'Product',
+        label: 'Pages',
         links: [
             { title: 'Home', href: '/' },
             { title: 'Robocon', href: '/robocon' },
@@ -55,34 +55,81 @@ export function Footer() {
                     </p>
                 </AnimatedContainer>
 
-                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 xl:col-span-2 xl:mt-0 w-full justify-items-center">
+                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 sm:gap-10 xl:col-span-2 xl:mt-0 w-full justify-items-center">
                     {footerLinks.map((section, index) => (
-                        <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
-                            <div className="mb-10 md:mb-0 flex flex-col items-center">
-                                <h3 className="text-lg font-semibold text-purple-300 mb-4">{section.label}</h3>
-                                <ul className="text-gray-400 space-y-3 text-base flex flex-col items-center">
-                                    {section.links.map((link) => (
-                                        <li key={link.title}>
-                                            <a
-                                                href={link.href}
-                                                target={link.href.startsWith('http') ? "_blank" : undefined}
-                                                rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                                                className="hover:text-white hover:scale-105 inline-flex items-center gap-2 transition-all duration-300"
-                                            >
-                                                {link.icon && <link.icon className="size-5 text-purple-400" />}
-                                                {link.title}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </AnimatedContainer>
+                        <FooterColumn key={section.label} section={section} index={index} />
                     ))}
                 </div>
             </div>
         </footer>
     );
 };
+
+function FooterColumn({ section, index }) {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+        const checkPhone = () => setIsMobile(window.innerWidth < 640);
+
+        checkPhone();
+        window.addEventListener('resize', checkPhone);
+        return () => window.removeEventListener('resize', checkPhone);
+    }, []);
+
+    const showContent = isMobile ? isOpen : true;
+
+    return (
+        <AnimatedContainer delay={0.1 + index * 0.1} className="w-full sm:w-auto">
+            <div className={`flex flex-col items-center w-full ${isMobile ? 'border-b border-white/10' : 'mb-4 md:mb-0'}`}>
+                {/* Header: Clickable only on mobile */}
+                <button
+                    onClick={() => isMobile && setIsOpen(!isOpen)}
+                    className={`flex items-center justify-between w-full sm:w-auto sm:justify-center group ${isMobile ? 'cursor-pointer py-4' : 'cursor-default'}`}
+                >
+                    <h3 className={`text-lg font-semibold text-purple-300 ${isMobile ? 'mb-0' : 'mb-4'}`}>{section.label}</h3>
+
+                    {/* Chevron: Visible only on mobile */}
+                    {isMobile && (
+                        <motion.div
+                            animate={{ rotate: isOpen ? 180 : 0 }}
+                            className="text-purple-400"
+                        >
+                            <ChevronDown className="size-5" />
+                        </motion.div>
+                    )}
+                </button>
+
+                {/* Content */}
+                <motion.ul
+                    initial={false}
+                    animate={{
+                        height: showContent ? "auto" : 0,
+                        opacity: showContent ? 1 : 0,
+                        marginBottom: (isMobile && showContent) ? 16 : 0
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className={`text-gray-400 space-y-3 text-base flex flex-col items-center overflow-hidden w-full`}
+                >
+                    {section.links.map((link) => (
+                        <li key={link.title}>
+                            <a
+                                href={link.href}
+                                target={link.href.startsWith('http') ? "_blank" : undefined}
+                                rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                                className="hover:text-white hover:scale-105 inline-flex items-center gap-2 transition-all duration-300 py-1"
+                            >
+                                {link.icon && <link.icon className="size-5 text-purple-400" />}
+                                {link.title}
+                            </a>
+                        </li>
+                    ))}
+                </motion.ul>
+            </div>
+        </AnimatedContainer>
+    );
+}
 
 function AnimatedContainer({ className, delay = 0.1, children }) {
     const shouldReduceMotion = useReducedMotion();

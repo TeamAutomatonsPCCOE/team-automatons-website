@@ -220,7 +220,13 @@ export default function GalleryPage() {
             <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/40 via-black to-black opacity-50 pointer-events-none" />
 
             <div className="absolute inset-0 pt-20 h-screen w-full z-10">
-                <InfiniteMenu items={items} scale={1.5} />
+                <InfiniteMenu
+                    items={items.map(item => ({
+                        ...item,
+                        image: getCloudinaryUrl(item.image, 'w_800')
+                    }))}
+                    scale={1.5}
+                />
             </div>
         </main>
     );
