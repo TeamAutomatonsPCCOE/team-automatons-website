@@ -224,7 +224,7 @@ const TEAM_DATA = {
             },
             {
                 id: '2026-h11',
-                name: 'Anushree Sandeep Narayan',
+                name: 'Anushree Narkhede',
                 role: 'Sr. Electronics Circuit Designer',
                 companyRole: '',
                 photo: '/team/2026/Anushree.webp',
@@ -390,7 +390,7 @@ const TEAM_DATA = {
             {
                 id: '2026-m12',
                 name: 'Atharva Phadke ',
-                role: 'Jr. Engineer',
+                role: 'Jr. Electronics Engineer',
                 companyRole: '',
                 photo: '/team/2026/image.png',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=atharvaphadke8@gmail.com',

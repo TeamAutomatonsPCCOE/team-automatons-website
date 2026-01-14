@@ -91,15 +91,25 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a; /* Dark background matching the page */
+  background: #0a0a0a;
+  /* Dark background matching the page */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #7e22ce 0%, #a855f7 100%); /* Purple gradient */
+  background: linear-gradient(180deg, #7e22ce 0%, #a855f7 100%);
+  /* Purple gradient */
   border-radius: 5px;
-  border: 2px solid #0a0a0a; /* Padding effect */
+  border: 2px solid #0a0a0a;
+  /* Padding effect */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #9333ea 0%, #c084fc 100%); /* Brighter on hover */
+  background: linear-gradient(180deg, #9333ea 0%, #c084fc 100%);
+  /* Brighter on hover */
+}
+
+/* Standard Scrollbar Support */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #7e22ce #0a0a0a;
 }
