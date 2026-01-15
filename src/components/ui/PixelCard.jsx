@@ -271,7 +271,7 @@ export default function PixelCard({ variant = 'default', gap, speed, colors, noF
             onBlur={finalNoFocus ? undefined : onBlur}
             onTouchStart={(e) => {
                 if (!finalNoFocus) {
-                    e.currentTarget.focus();
+                    e.currentTarget.focus({ preventScroll: true });
                 }
             }}
             tabIndex={finalNoFocus ? -1 : 0}

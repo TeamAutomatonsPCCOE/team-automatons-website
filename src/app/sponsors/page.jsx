@@ -97,7 +97,7 @@ export default function SponsorsPage() {
                                                             src={getCloudinaryUrl(sponsor.logo)}
                                                             alt={sponsor.name}
                                                             className="max-w-full max-h-full object-contain"
-                                                            style={{ transform: `scale(${sponsor.scale || 1}) translateY(${sponsor.translateY || '0px'})` }}
+                                                            style={{ transform: `scale(${sponsor.scale || 1}) translate(${sponsor.translateX || '0px'}, ${sponsor.translateY || '0px'})` }}
                                                         />
                                                     </a>
                                                 </div>
