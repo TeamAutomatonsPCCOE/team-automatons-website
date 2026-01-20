@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
+
 
 const missions = [
     {
@@ -8,21 +10,21 @@ const missions = [
         title: "ABEx",
         subtitle: "Astrobiology Expedition",
         description: "The Astrobiology Expedition transformed our rover into a mobile science laboratory operating in a simulated Martian terrain. Our objective was to identify scientifically promising sites and analyze their potential to support microbial life. The rover performed terrain exploration, panoramic imaging, and close-up documentation to justify sample site selection. Using onboard instruments, we measured parameters such as subsurface temperature, humidity, pH, and atmospheric conditions. Our rover successfully collected a subsurface soil sample from beyond 10 cm depth and sealed it in a contamination-free cache. All scientific analysis was performed autonomously on the rover, replicating real Mars mission constraints. The mission concluded with a detailed science report explaining our findings and their relevance to Martian habitability. This task tested our scientific thinking, data interpretation, and precision engineering under strict time limits.",
-        image: "irc/image.png" // Dummy image
+        image: "/irc/astro.webp" // Dummy image
     },
     {
         id: "R&DO",
         title: "R&DO",
         subtitle: "Reconnaissance and Delivery Operation",
         description: "The Reconnaissance and Autonomous Delivery Operation challenged our rover’s navigation, perception, and autonomy capabilities. In the reconnaissance phase, the rover explored a wide terrain, identified scattered objects, and logged their GPS coordinates with visual confirmation. Strategic path planning was crucial to maximize coverage within limited time. During the autonomous delivery phase, the rover picked up selected objects and delivered them to designated locations using GPS-based navigation. Full autonomy during delivery demanded accurate localization, obstacle handling, and stable control logic. Our robotic arm and storage mechanism played a key role in reliable object handling. This mission emphasized real-world challenges faced in extraterrestrial logistics and supply operations. Successfully completing it demonstrated our rover’s readiness for long-range, semi-autonomous missions.",
-        image: "/irc/IMG_8629.jpg" // Dummy image
+        image: "/irc/rado_final.webp" // Dummy image
     },
     {
         id: "ID&MO",
         title: "ID&MO",
         subtitle: "Instrument Deployment and Maintenance Operation",
         description: "The IDMO task focused on precision manipulation and fine motor control using a robotic arm. Our rover performed complex maintenance actions such as opening panels, operating switches, turning knobs, and inserting connectors. Each operation demanded high positional accuracy and stable vision feedback from onboard cameras. In the deployment phase, the rover transported instrument caches and placed them in predefined orientations at designated locations. After deployment, the rover identified and relayed coded information displayed on the instruments to the base station team. This task closely simulated astronaut-assistive robotic operations on Mars. It tested not only mechanical design but also control algorithms and operator coordination. IDMO truly highlighted the importance of dexterity and reliability in space robotics.",
-        image: "/irc/IMG_8629.jpg" // Dummy image
+        image: "/irc/idmo.webp" // Dummy image
     },
     {
         id: "PIMA",
@@ -69,7 +71,7 @@ const AnimatedBlock = ({ mission, index, isAlternate, isLast }) => {
                     {/* Inner Black Box */}
                     <div className="relative w-full h-full bg-black rounded-[36px] overflow-hidden">
                         <img
-                            src={mission.image}
+                            src={getCloudinaryUrl(mission.image)}
                             alt={mission.title}
                             className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                         />

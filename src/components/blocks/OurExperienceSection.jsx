@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
+
 
 export function OurExperienceSection() {
     const [isVisible, setIsVisible] = useState(false);
@@ -66,7 +68,7 @@ export function OurExperienceSection() {
                         {IMAGES.map((imgSrc, index) => (
                             <img
                                 key={index}
-                                src={imgSrc}
+                                src={getCloudinaryUrl(imgSrc)}
                                 alt={`Our Experience ${index + 1}`}
                                 className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
                                     }`}

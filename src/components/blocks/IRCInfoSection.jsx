@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
+
 
 export function IRCInfoSection() {
     const [isVisible, setIsVisible] = useState(false);
@@ -77,7 +79,7 @@ export function IRCInfoSection() {
                         {/* Image Container */}
                         <div className="relative z-10 w-full rounded-[36px] overflow-hidden shadow-2xl bg-gray-900 m-[1px] flex items-center justify-center">
                             <img
-                                src="/irc/lighthouse.jpg"
+                                src={getCloudinaryUrl("/irc/lighthouse.jpg")}
                                 alt="Lighthouse at Udupi"
                                 className="w-full h-auto object-contain"
                             />

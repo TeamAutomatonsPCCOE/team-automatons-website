@@ -11,7 +11,7 @@ import { getCloudinaryUrl } from '@/lib/cloudinary';
 // Team Member Data
 const TEAM_DATA = {
     2026: {
-        groupPhoto: '', // Placeholder - user needs to add correct path
+        groupPhoto: '/team/2026/group_2026.webp', // Placeholder - user needs to add correct path
         "BTech Members": [
             {
                 id: '2026-c1',
@@ -218,7 +218,7 @@ const TEAM_DATA = {
                 name: 'Samehaan Joshi',
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/saminna.webp',
                 email: '',
                 linkedin: ''
             },
@@ -310,7 +310,7 @@ const TEAM_DATA = {
                 name: 'Manasi Sandeep Dhake',
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/mansi.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=manasid808@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/manasi-dhake-52723437b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
@@ -319,7 +319,7 @@ const TEAM_DATA = {
                 name: ' Piyush Suryavanshi',
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/piyushsy.webp',
                 email: '',
                 linkedin: ''
             },
@@ -328,7 +328,7 @@ const TEAM_DATA = {
                 name: ' Prakhar Dubey',
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/prakhar.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=prakhardubey797@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/prakhar-dubey-b3b942344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
@@ -346,7 +346,7 @@ const TEAM_DATA = {
                 name: 'Priya Naik',
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/Priya.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=priya.naik24@pccoepune.org',
                 linkedin: 'https://www.linkedin.com/in/priya-naik-670a0632a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
@@ -356,7 +356,7 @@ const TEAM_DATA = {
                 name: 'Siddhesh Jayant kurundkar',
                 role: 'Jr. Mechanical Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/Siddhesh.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=siddhesh192006@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/siddhesh-kurundkar-b2b03337a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
@@ -383,7 +383,7 @@ const TEAM_DATA = {
                 name: 'Ashna Kankaria ',
                 role: 'Jr. Embedded Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/ashna.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=ashnakankaria05@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/ashna-kankaria-99821732b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
@@ -392,7 +392,7 @@ const TEAM_DATA = {
                 name: 'Atharva Phadke ',
                 role: 'Jr. Electronics Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/athrav.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=atharvaphadke8@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/atharvap8/'
             },
@@ -410,7 +410,7 @@ const TEAM_DATA = {
                 name: 'Laxmi Chavhan ',
                 role: 'Jr. Electronics Circuit Design Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.png',
+                photo: '/team/2026/laxmi.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=laxmichavhan003@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/laxmi-chavhan-47121732b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
             },
@@ -419,7 +419,7 @@ const TEAM_DATA = {
                 name: 'Mayank Bahekar',
                 role: 'Jr. Electronics Circuit Design Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.webp',
+                photo: '/team/2026/mayank.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=bahekarmayank@gnail.com',
                 linkedin: 'https://www.linkedin.com/in/mayank-bahekar-08b79a239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
             },
@@ -464,7 +464,7 @@ const TEAM_DATA = {
                 name: 'Tanvi Patil',
                 role: 'Jr. Embedded Engineer',
                 companyRole: '',
-                photo: '/team/2026/image.webp',
+                photo: '/team/2026/tanvi.webp',
                 email: 'https://mail.google.com/mail/?view=cm&fs=1&to=tanvi.n.patil@gmail.com',
                 linkedin: 'https://www.linkedin.com/in/tanvi-patil-8aa21532b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
             },
@@ -1047,7 +1047,7 @@ export default function TeamPage() {
                         <div className="mb-24 flex justify-center animate-slide-up">
                             <div className="relative w-full max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(168,85,247,0.2)] border border-purple-500/30">
                                 <img
-                                    src={getCloudinaryUrl(yearData.groupPhoto)}
+                                    src={getCloudinaryUrl(yearData.groupPhoto, 'w_1920')}
                                     alt={`Team Automatons ${selectedYear}`}
                                     className="w-full h-full object-cover"
                                     onError={(e) => {
