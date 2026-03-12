@@ -6,6 +6,21 @@ import { motion } from 'framer-motion';
 
 const legacyData = [
     {
+        year: "2026",
+        type: "single",
+        title: "IRC 2026",
+        videoLink: "https://youtu.be/qRU-KDJ08NM?si=fGXrN6pZtbtIWfII",
+        description: (
+            <>
+                International Rover Challenge participation with Kartikeya 2.0.
+                <br />
+                We secured World Rank 12th in IRC 2026.
+                And Got "Best Emerging Team of the Year."
+            </>
+        ),
+        image: "/achievements/irc2026.jpeg"
+    },
+    {
         year: "2025",
         type: "dual",
         items: [
