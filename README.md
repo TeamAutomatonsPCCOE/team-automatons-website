@@ -1,6 +1,6 @@
 # 🤖 Team Automatons Website
 
-**Raising to the challenge raised by dreams.**
+**Rising to the challenge raised by dreams.**
 
 The Team Automatons Website is the official portfolio and information hub for Team Automatons, a collegiate robotics team from Pimpri Chinchwad College of Engineering (PCCOE). It showcases the team’s engineering achievements, competitive journey, members, and ongoing activities, while also serving as a point of contact for sponsors, collaborators, and prospective recruits.
 
