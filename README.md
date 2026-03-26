@@ -110,7 +110,8 @@ Please ensure your changes are clean, tested, and aligned with the project’s g
 
 For collaboration, sponsorship, or recruitment inquiries:
 
-- Email: automatons.robotics@gmail.com
+- Email: automatons.robotics@gmail.com , automatons.robotics@pccoepune.org
+- 
 
 ---
 
