@@ -22,7 +22,7 @@ const legacyData = [
             },
             {
                 title: "IRC 2026",
-                videoLink: "https://youtu.be/qRU-KDJ08NM?si=fGXrN6pZtbtIWfII",
+                videoLink: "https://youtu.be/tUWYHrXz7LQ?si=QQLvZm7S-nVqcuoP",
                 description: (
                     <>
                         International Rover Challenge participation with Kartikeya 2.0.
